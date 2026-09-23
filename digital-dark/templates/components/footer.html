@@ -1,0 +1,64 @@
+{% load static %}
+<!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="row gy-4 mb-5">
+      <div class="col-lg-4">
+        <a class="brand-logo mb-3 d-inline-flex" style="color: var(--cream);" href="{% url 'public:index' %}">
+          <div class="dart-icon" style="background-color: var(--copper);"><i class="fas fa-bullseye"></i></div>
+          <span>Digital Dark</span>
+        </a>
+        <p class="small text-light-muted">Specialist e-commerce growth agency. We help luxury digital brands scale revenue and net profit through Google Ads, SEO, and paid social media architecture.</p>
+        <div class="d-flex gap-3 fs-5 mt-3 text-light-muted">
+          <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+          <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+          <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        </div>
+      </div>
+
+      <div class="col-6 col-lg-2">
+        <h5>Services</h5>
+        <ul class="list-unstyled d-flex flex-column gap-2 small">
+          <li><a href="{% url 'public:services' %}">E-Commerce Growth</a></li>
+          <li><a href="{% url 'public:services' %}">Conversion Optimization</a></li>
+          <li><a href="{% url 'public:services' %}">Paid Search & Social</a></li>
+          <li><a href="{% url 'public:guides' %}">Download Guides</a></li>
+          <li><a href="{% url 'public:free_course' %}">Free Growth Course</a></li>
+        </ul>
+      </div>
+
+      <div class="col-6 col-lg-2">
+        <h5>Company</h5>
+        <ul class="list-unstyled d-flex flex-column gap-2 small">
+          <li><a href="{% url 'public:about' %}">About Us</a></li>
+          <li><a href="{% url 'public:careers' %}">Careers</a></li>
+          <li><a href="{% url 'public:partners' %}">Agency Partners</a></li>
+          <li><a href="{% url 'public:case_studies' %}">Case Studies</a></li>
+          <li><a href="{% url 'public:blog' %}">Blog Insights</a></li>
+          <li><a href="{% url 'public:contact' %}">Contact Agency</a></li>
+          <li><a href="{% url 'agency_admin:staff_login' %}"><i class="fas fa-user-shield me-1"></i> Staff Login</a></li>
+          <li><a href="{% url 'agency_admin:admin_login' %}"><i class="fas fa-crown me-1 text-warning"></i> Admin Portal</a></li>
+        </ul>
+      </div>
+
+      <div class="col-lg-4">
+        <h5>DTC Growth Weekly</h5>
+        <p class="small text-light-muted">Get actionable e-commerce marketing tactics sent to your inbox every Tuesday.</p>
+        <form method="POST" action="{% url 'public:index' %}" class="input-group mb-3">
+          {% csrf_token %}
+          <input type="email" name="email" class="form-control form-control-custom" placeholder="Enter work email" required>
+          <button class="btn btn-copper" type="submit">Subscribe</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="border-top pt-4 border-dark d-flex flex-wrap justify-content-between align-items-center small text-light-muted">
+      <div>&copy; 2026 Digital Dark. All rights reserved. Specialist E-Commerce Growth Agency.</div>
+      <div class="d-flex gap-3">
+        <a href="{% url 'public:privacy' %}">Privacy Policy</a>
+        <a href="{% url 'public:terms' %}">Terms of Service</a>
+      </div>
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,57 @@
+{% extends 'admin_base.html' %}
+{% block title %}Case Studies Management - Custom Admin{% endblock %}
+
+{% block content %}
+<div class="admin-card p-4">
+  <div class="d-flex align-items-center justify-content-between mb-4">
+    <div>
+      <h4 class="fw-bold mb-1"><i class="fas fa-briefcase me-2 text-info"></i> Case Studies Management</h4>
+      <p class="small text-muted mb-0">Create, edit, and publish client success case studies displayed on the public site.</p>
+    </div>
+    <a href="{% url 'agency_admin:admin_case_study_create' %}" class="btn btn-dark fw-bold">
+      <i class="fas fa-plus me-1"></i> Add Case Study
+    </a>
+  </div>
+
+  {% if messages %}
+    {% for message in messages %}
+      <div class="alert alert-success py-2 px-3 small rounded-3 mb-3">{{ message }}</div>
+    {% endfor %}
+  {% endif %}
+
+  <div class="table-responsive">
+    <table class="table table-hover align-middle">
+      <thead class="table-light">
+        <tr>
+          <th>Client Name</th>
+          <th>Title & Metric</th>
+          <th>Status</th>
+          <th>Created</th>
+          <th class="text-end">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for cs in case_studies %}
+          <tr>
+            <td class="fw-bold text-dark">{{ cs.client_name }}</td>
+            <td>
+              <strong class="d-block text-dark">{{ cs.title }}</strong>
+              <span class="badge bg-success-subtle text-success border border-success">{{ cs.result }}</span>
+            </td>
+            <td>
+              {% if cs.status == 'published' %}<span class="badge bg-success">Published</span>{% else %}<span class="badge bg-warning text-dark">{{ cs.get_status_display }}</span>{% endif %}
+            </td>
+            <td class="small text-muted">{{ cs.created_at|date:"M d, Y" }}</td>
+            <td class="text-end">
+              <a href="{% url 'agency_admin:admin_case_study_edit' cs.id %}" class="btn btn-sm btn-outline-dark me-1">Edit</a>
+              <a href="{% url 'agency_admin:admin_case_study_delete' cs.id %}" class="btn btn-sm btn-outline-danger" onclick="return confirm('Delete case study?');">Delete</a>
+            </td>
+          </tr>
+        {% empty %}
+          <tr><td colspan="5" class="text-center py-4 text-muted">No case studies created yet.</td></tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}

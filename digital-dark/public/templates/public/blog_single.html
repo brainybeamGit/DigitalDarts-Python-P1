@@ -1,0 +1,188 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}The Ultimate Shopify SEO Guide for 2026 - Digital Darts{% endblock %}
+
+{% block content %}
+  <!-- Article Header Section -->
+  <section class="section-padding bg-cream-alt pb-4">
+    <div class="container">
+      <div class="d-flex align-items-center gap-2 mb-3">
+        <a href="{% url 'public:blog' %}" class="text-espresso small fw-bold"><i class="fas fa-arrow-left me-1"></i> Back to Knowledge Hub</a>
+        <span class="text-muted">/</span>
+        <span class="badge badge-copper">Shopify SEO Masterclass</span>
+      </div>
+
+      <h1 class="display-4 fw-bold mb-3 text-espresso">The Ultimate Shopify SEO Guide for 2026</h1>
+
+      <!-- Author Metadata Row -->
+      <div class="d-flex align-items-center gap-4 flex-wrap text-muted small pt-3 border-top border-secondary border-opacity-25">
+        <div class="d-flex align-items-center gap-2">
+          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80" alt="Rahul" class="testimonial-avatar-img" style="width: 42px; height: 42px;">
+          <div>
+            <strong class="d-block text-espresso fs-6">Written by Rahul</strong>
+            <span class="text-muted">Senior E-Commerce Strategist</span>
+          </div>
+        </div>
+        <div><i class="far fa-clock me-1 text-copper"></i> 18 Min Read</div>
+        <div><i class="far fa-calendar-alt me-1 text-copper"></i> Updated September 2026</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Banner Image -->
+  <section class="pb-5 bg-cream-alt">
+    <div class="container">
+      <div class="img-card-luxury">
+        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80" alt="Shopify SEO Masterclass Banner" style="height: 440px; object-fit: cover;">
+      </div>
+    </div>
+  </section>
+
+  <!-- Editorial Reader Layout: 2 Columns -->
+  <section class="section-padding">
+    <div class="container">
+      <div class="row g-5">
+
+        <!-- Main Column: Article Content -->
+        <div class="col-lg-8">
+          <div class="article-container">
+
+            <p class="article-lead">
+              Shopify collection pages generate over 85% of organic search revenue for e-commerce stores, yet most themes suffer from canonical link bloat and split page rank. Here is the step-by-step framework to fix it.
+            </p>
+
+            <!-- Key Takeaways Alert Box -->
+            <div class="p-4 bg-espresso text-cream rounded-lg mb-5 shadow-sm" style="border-radius: var(--radius-md);">
+              <h4 class="fw-bold text-cream mb-3"><i class="fas fa-bookmark text-sage me-2"></i> Key Growth Takeaways</h4>
+              <ul class="mb-0 text-cream list-unstyled d-flex flex-column gap-2" style="font-size: 1rem;">
+                <li><i class="fas fa-check text-sage me-2"></i> Default Shopify product links duplicate collection URLs, diluting search ranking power.</li>
+                <li><i class="fas fa-check text-sage me-2"></i> Collection pages generate 80%+ of e-commerce organic sales, not individual product pages.</li>
+                <li><i class="fas fa-check text-sage me-2"></i> Fixing Liquid theme canonical tags can instantly consolidate duplicate page authority.</li>
+              </ul>
+            </div>
+
+            <!-- Section 1 -->
+            <h2 class="fw-bold mb-3 text-espresso" id="sec-1">1. The Hidden Shopify Canonical URL Problem</h2>
+            <p class="text-muted mb-4" style="font-size: 1.05rem; line-height: 1.8;">By default, when a visitor navigates to a product from a collection page, Shopify outputs the URL as:</p>
+            
+            <div class="p-3 bg-cream-alt rounded border font-mono small text-copper mb-4">
+              https://yourstore.com/collections/apparel/products/leather-jacket
+            </div>
+
+            <p class="text-muted mb-4" style="font-size: 1.05rem; line-height: 1.8;">However, the canonical version of the product lives at:</p>
+
+            <div class="p-3 bg-cream-alt rounded border font-mono small text-success mb-4">
+              https://yourstore.com/products/leather-jacket
+            </div>
+
+            <p class="text-muted mb-5" style="font-size: 1.05rem; line-height: 1.8;">This creates duplicate content signals in Google Search Console. Google struggles to consolidate backlinks and internal anchor text because authority is split between two separate paths.</p>
+
+            <!-- Section 2: The Liquid Theme Fix -->
+            <h2 class="fw-bold mb-3 text-espresso" id="sec-2">2. The 2-Minute Liquid Theme Code Fix</h2>
+            <p class="text-muted mb-4" style="font-size: 1.05rem; line-height: 1.8;">To force Shopify to link directly to root `/products/` URLs across all collection pages, open your theme editor and locate your product card snippet (`product-card-grid.liquid` or `main-product.liquid`):</p>
+
+            {% verbatim %}
+            <div class="p-4 bg-dark text-white rounded border mb-4 font-mono small shadow-sm">
+              <div class="text-secondary mb-2">&lt;!-- Replace this line: --&gt;</div>
+              <div class="text-danger mb-3">&lt;a href="{{ product.url | within: collection }}"&gt;{{ product.title }}&lt;/a&gt;</div>
+              <div class="text-secondary mb-2">&lt;!-- With this clean root link: --&gt;</div>
+              <div class="text-success">&lt;a href="{{ product.url }}"&gt;{{ product.title }}&lt;/a&gt;</div>
+            </div>
+
+            <p class="text-muted mb-5" style="font-size: 1.05rem; line-height: 1.8;">Removing `| within: collection` forces Shopify to output root `/products/` links, immediately resolving canonical split authority!</p>
+            {% endverbatim %}
+
+            <!-- Section 3: Collection Keyword Siloing -->
+            <h2 class="fw-bold mb-3 text-espresso" id="sec-3">3. Collection Keyword Siloing for High-Intent Buyers</h2>
+            <p class="text-muted mb-4" style="font-size: 1.05rem; line-height: 1.8;">Shoppers rarely search for specific SKU product names unless they are already aware of your brand. Instead, 85% of high-intent search volume sits on generic category phrases like <em>"Men's Waterproof Outdoor Jackets"</em> or <em>"Organic Leather Boots"</em>.</p>
+
+            <div class="card p-4 border-0 shadow-sm bg-cream-alt mb-5" style="border-radius: var(--radius-md);">
+              <h5 class="fw-bold text-copper mb-2"><i class="fas fa-lightbulb me-2"></i> Collection Optimization Checklist</h5>
+              <ul class="mb-0 text-espresso list-unstyled d-flex flex-column gap-2">
+                <li><i class="fas fa-check text-copper me-2"></i> Add 200+ words of keyword-optimized introduction copy below the collection title.</li>
+                <li><i class="fas fa-check text-copper me-2"></i> Include H2 subheadings targeting related buyer questions.</li>
+                <li><i class="fas fa-check text-copper me-2"></i> Build internal links from related blog guides directly to collection URLs.</li>
+              </ul>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Sidebar Column -->
+        <div class="col-lg-4" style="align-self: flex-start;">
+          <div class="d-flex flex-column gap-4 sticky-top" style="top: 100px; z-index: 10;">
+
+            <!-- Author Card -->
+            <div class="editorial-sidebar-card">
+              <div class="d-flex align-items-center gap-3 mb-3">
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80" alt="Rahul" class="testimonial-avatar-img">
+                <div>
+                  <h6 class="fw-bold text-espresso mb-0">Rahul</h6>
+                  <span class="small text-muted">Senior E-Commerce Strategist</span>
+                </div>
+              </div>
+              <p class="small text-muted mb-0">Rahul helps 7 & 8-figure Shopify brands scale net profit margins through Google Ads, SEO, and CRO.</p>
+            </div>
+
+            <!-- Table of Contents Widget -->
+            <div class="editorial-sidebar-card">
+              <h6 class="fw-bold text-espresso mb-3"><i class="fas fa-list-ul text-copper me-2"></i> Table of Contents</h6>
+              <ul class="list-unstyled d-flex flex-column gap-2 small mb-0">
+                <li><a href="#sec-1" class="text-espresso fw-semibold"><i class="fas fa-angle-right text-copper me-1"></i> 1. Shopify Canonical Problem</a></li>
+                <li><a href="#sec-2" class="text-espresso fw-semibold"><i class="fas fa-angle-right text-copper me-1"></i> 2. The Liquid Theme Fix</a></li>
+                <li><a href="#sec-3" class="text-espresso fw-semibold"><i class="fas fa-angle-right text-copper me-1"></i> 3. Collection Keyword Siloing</a></li>
+              </ul>
+            </div>
+
+            <!-- Audit Request Widget -->
+            <div class="p-4 bg-espresso text-cream rounded-lg shadow-sm" style="border-radius: var(--radius-md);">
+              <div class="d-flex align-items-center justify-content-between mb-2">
+                <h5 class="fw-bold text-cream mb-0"><i class="fas fa-chart-line text-sage me-2"></i> Free Store Audit</h5>
+                <span class="badge bg-sage text-espresso fw-bold">100% Free</span>
+              </div>
+              <p class="small text-light-muted mb-3">Want senior strategists to review your Shopify Google Ads & SEO?</p>
+              <a href="{% url 'public:contact' %}" class="btn btn-copper w-100 btn-sm"><i class="fas fa-paper-plane me-1"></i> Request Audit</a>
+            </div>
+
+            <!-- Direct Agency Contact Box -->
+            <div class="editorial-sidebar-card bg-cream-alt border-copper" style="border-left: 4px solid var(--copper);">
+              <div class="d-flex align-items-center justify-content-between mb-2 text-espresso">
+                <strong class="small fw-bold"><i class="fas fa-headset me-1 text-copper"></i> Direct Agency Contact</strong>
+                <span class="badge bg-success text-white px-2 py-1" style="font-size: 0.68rem;"><i class="fas fa-circle me-1" style="font-size: 0.45rem;"></i> Active Now</span>
+              </div>
+              <p class="small text-muted mb-3" style="font-size: 0.85rem;">Need immediate advice on scaling your Shopify revenue?</p>
+              <div class="d-flex flex-column gap-2">
+                <a href="tel:+61730008899" class="btn btn-outline-espresso btn-sm w-100 text-start d-flex align-items-center gap-2" style="font-size: 0.85rem;">
+                  <div class="d-inline-flex align-items-center justify-content-center bg-copper text-cream rounded-circle shadow-sm" style="width: 26px; height: 26px; font-size: 0.75rem; flex-shrink: 0;"><i class="fas fa-phone-alt"></i></div>
+                  +61 7 3000 8899
+                </a>
+                <a href="https://wa.me/61400000000" target="_blank" class="btn btn-sage btn-sm w-100 text-start d-flex align-items-center gap-2" style="font-size: 0.85rem;">
+                  <div class="d-inline-flex align-items-center justify-content-center text-white rounded-circle shadow-sm" style="width: 26px; height: 26px; background: #25D366; font-size: 0.85rem; flex-shrink: 0;"><i class="fab fa-whatsapp"></i></div>
+                  Chat on WhatsApp
+                </a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter Signup -->
+  <section class="section-padding bg-espresso text-cream text-center">
+    <div class="container">
+      <h2 class="display-6 fw-bold text-cream mb-3">Want Actionable Shopify Tactics Every Week?</h2>
+      <p class="text-cream mb-4 max-w-600 mx-auto" style="opacity: 0.9;">Join 10,000+ Shopify merchants who receive our weekly profit strategy email.</p>
+      
+      <div class="max-w-600 mx-auto">
+        <form class="input-group">
+          <input type="email" class="form-control form-control-custom py-3" placeholder="Enter your business email" required>
+          <button class="btn btn-copper px-4" type="submit">Subscribe Free</button>
+        </form>
+      </div>
+    </div>
+  </section>
+{% endblock %}

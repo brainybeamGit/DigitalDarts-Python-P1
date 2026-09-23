@@ -1,0 +1,531 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Digital Darts - Shopify Google Ads & SEO Growth Agency{% endblock %}
+
+{% block content %}
+  <!-- Luxury Hero Section -->
+  <section class="hero-section">
+    <div class="container">
+      <div class="row align-items-center gy-5">
+        <div class="col-lg-6">
+          <span class="badge badge-sage mb-3 hero-badge"><i class="fas fa-shield-halved me-1"></i> Shopify Specialist Agency Since 2015</span>
+          <h1 class="hero-title">Shopify Stores Hire Us to Run Google Ads & SEO to Profit, Not Vanity ROAS.</h1>
+          <p class="hero-subtitle">Discover how to grow your Shopify store without collapsing into bed each night. Learn how to sell more, increase profit, and have a business you’re proud of.</p>
+          
+          <div class="hero-cta-group d-flex flex-wrap gap-3">
+            <a href="{% url 'public:contact' %}" class="btn btn-copper btn-lg"><i class="fas fa-paper-plane"></i> Request Free Store Audit</a>
+            <a href="#roi-calculator" class="btn btn-outline-espresso btn-lg"><i class="fas fa-calculator"></i> Calculate Profit Lift</a>
+          </div>
+
+          <div class="d-flex flex-wrap gap-4 mt-4 pt-3 text-muted small">
+            <div><i class="fas fa-check-circle text-success me-1"></i> Senior Team Only</div>
+            <div><i class="fas fa-check-circle text-success me-1"></i> No Long Contracts</div>
+            <div><i class="fas fa-check-circle text-success me-1"></i> 100%-400%+ Profit Growth</div>
+          </div>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="hero-img-wrapper">
+            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80" alt="Shopify Analytics Growth Dashboard" class="hero-img-main">
+            
+            <div class="hero-floating-card card-top-right text-center">
+              <div class="stat-number counter-val text-copper" data-target="45" data-prefix="$" data-suffix="M+">$0</div>
+              <div class="fw-bold small text-espresso">Client Revenue</div>
+            </div>
+
+            <div class="hero-floating-card card-bottom-left text-center">
+              <div class="stat-number counter-val text-success" data-target="340" data-prefix="+" data-suffix="%">+0%</div>
+              <div class="fw-bold small text-espresso">Avg ROAS Lift</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Moving Brand Logos Ticker ("Trusted by Leading Shopify Brands & Platform Partners") -->
+  <section class="trust-bar">
+    <div class="container">
+      <p class="text-center text-uppercase fw-bold small text-muted mb-3" style="letter-spacing: 0.1em;">Trusted by Leading Shopify Brands & Platform Partners</p>
+      
+      <!-- Infinite Moving Marquee -->
+      <div class="ticker-wrap">
+        <div class="ticker-move">
+          <div class="brand-logo-item"><i class="fab fa-shopify me-2"></i> SHOPIFY PLUS</div>
+          <div class="brand-logo-item"><i class="fab fa-google me-2"></i> GOOGLE PREMIER PARTNER</div>
+          <div class="brand-logo-item"><i class="fab fa-facebook me-2"></i> META BUSINESS PARTNER</div>
+          <div class="brand-logo-item"><i class="fas fa-box-open me-2"></i> KLAVIYO DTC</div>
+          <div class="brand-logo-item"><i class="fas fa-chart-pie me-2"></i> GA4 CERTIFIED</div>
+          
+          <!-- Duplicated for Infinite Seamless Scroll -->
+          <div class="brand-logo-item"><i class="fab fa-shopify me-2"></i> SHOPIFY PLUS</div>
+          <div class="brand-logo-item"><i class="fab fa-google me-2"></i> GOOGLE PREMIER PARTNER</div>
+          <div class="brand-logo-item"><i class="fab fa-facebook me-2"></i> META BUSINESS PARTNER</div>
+          <div class="brand-logo-item"><i class="fas fa-box-open me-2"></i> KLAVIYO DTC</div>
+          <div class="brand-logo-item"><i class="fas fa-chart-pie me-2"></i> GA4 CERTIFIED</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 1: The 4 Rules of Shopify Store Growth -->
+  <section class="section-padding bg-cream-alt rules-section">
+    <div class="container">
+      <div class="section-header-centered mb-5 section-title-reveal">
+        <span class="badge badge-copper mb-2">Our Growth Philosophy</span>
+        <h2 class="display-6 fw-bold text-center">The 4 Rules of Shopify Store Growth</h2>
+        <p class="text-muted text-center">How top 1% Shopify brands scale revenue without sacrificing gross profit margins.</p>
+      </div>
+
+      <div class="row g-4">
+        <!-- Rule 1 -->
+        <div class="col-md-6 col-lg-3">
+          <div class="rule-card">
+            <span class="rule-number-badge">RULE 01</span>
+            <div class="rule-icon"><i class="fas fa-coins"></i></div>
+            <h5 class="rule-title">Profit Over ROAS</h5>
+            <p class="rule-desc">Ad platform ROAS lies. We calculate true Break-Even ROAS based on net product margins and shipping costs.</p>
+          </div>
+        </div>
+
+        <!-- Rule 2 -->
+        <div class="col-md-6 col-lg-3">
+          <div class="rule-card">
+            <span class="rule-number-badge">RULE 02</span>
+            <div class="rule-icon"><i class="fas fa-search-location"></i></div>
+            <h5 class="rule-title">High-Intent Search</h5>
+            <p class="rule-desc">Target buyers actively looking for your exact product categories on Google, capturing instant purchase intent.</p>
+          </div>
+        </div>
+
+        <!-- Rule 3 -->
+        <div class="col-md-6 col-lg-3">
+          <div class="rule-card">
+            <span class="rule-number-badge">RULE 03</span>
+            <div class="rule-icon"><i class="fas fa-layer-group"></i></div>
+            <h5 class="rule-title">SKU Margin Clustering</h5>
+            <p class="rule-desc">Group Performance Max campaigns by product margin to stop low-margin products from bleeding ad budget.</p>
+          </div>
+        </div>
+
+        <!-- Rule 4 -->
+        <div class="col-md-6 col-lg-3">
+          <div class="rule-card">
+            <span class="rule-number-badge">RULE 04</span>
+            <div class="rule-icon"><i class="fas fa-bolt"></i></div>
+            <h5 class="rule-title">Organic Compounding</h5>
+            <p class="rule-desc">Combine paid ads with technical Liquid theme SEO to build compounding zero-CAC organic revenue over time.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Agency Comparison Matrix Section -->
+  <section class="section-padding bg-cream border-top border-bottom">
+    <div class="container">
+      <div class="section-header-centered mb-5 section-title-reveal">
+        <span class="badge badge-sage mb-2">Agency Benchmark</span>
+        <h2 class="display-6 fw-bold text-center">Traditional Agencies vs. Digital Darts</h2>
+        <p class="text-muted text-center">See why 7 & 8-figure Shopify brands switch from generic agencies to our profit-first model.</p>
+      </div>
+
+      <div class="table-responsive comparison-matrix-card">
+        <table class="table comparison-table align-middle text-center">
+          <thead>
+            <tr>
+              <th class="text-start ps-4 text-espresso" style="width: 30%; background: #FDF4D2;">Comparison Factor</th>
+              <th class="col-trad" style="width: 35%;"><i class="fas fa-building me-1"></i> Traditional Marketing Agencies</th>
+              <th class="col-darts" style="width: 35%;"><i class="fas fa-bullseye me-1"></i> Digital Darts Agency</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="text-start ps-4 fw-bold text-espresso">Team Experience</td>
+              <td class="text-muted"><i class="fas fa-times-circle text-danger me-1"></i> Junior account managers & interns</td>
+              <td class="col-darts-cell"><i class="fas fa-check-circle text-success me-1"></i> Senior Specialists Only (7+ yrs exp)</td>
+            </tr>
+            <tr>
+              <td class="text-start ps-4 fw-bold text-espresso">Primary Success Metric</td>
+              <td class="text-muted"><i class="fas fa-times-circle text-danger me-1"></i> Vanity ROAS & ad click volume</td>
+              <td class="col-darts-cell"><i class="fas fa-check-circle text-success me-1"></i> Bottom-line Net Margin & Cash Flow</td>
+            </tr>
+            <tr>
+              <td class="text-start ps-4 fw-bold text-espresso">Contract Terms</td>
+              <td class="text-muted"><i class="fas fa-times-circle text-danger me-1"></i> 6 to 12-month lock-in contracts</td>
+              <td class="col-darts-cell"><i class="fas fa-check-circle text-success me-1"></i> Month-to-Month Performance</td>
+            </tr>
+            <tr>
+              <td class="text-start ps-4 fw-bold text-espresso">E-commerce Specialization</td>
+              <td class="text-muted"><i class="fas fa-times-circle text-danger me-1"></i> Generic (WordPress, B2B, Lead Gen)</td>
+              <td class="col-darts-cell"><i class="fas fa-check-circle text-success me-1"></i> 100% Shopify & Shopify Plus Only</td>
+            </tr>
+            <tr>
+              <td class="text-start ps-4 fw-bold text-espresso">Ad Campaign Strategy</td>
+              <td class="text-muted"><i class="fas fa-times-circle text-danger me-1"></i> Broad non-converting search terms</td>
+              <td class="col-darts-cell"><i class="fas fa-check-circle text-success me-1"></i> SKU Margin Clustering & Negative PMax</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Core Services Showcase: Built Exclusively for Shopify Growth -->
+  <section class="section-padding services-section">
+    <div class="container">
+      <div class="section-header-centered mb-5 section-title-reveal">
+        <span class="badge badge-sage mb-2">Tailored E-commerce Solutions</span>
+        <h2 class="display-6 fw-bold text-center">Built Exclusively for Shopify Growth</h2>
+        <p class="text-muted text-center">Senior specialist execution tailored specifically for your store's inventory turnover and margin goals.</p>
+      </div>
+
+      <div class="row g-4">
+        <!-- Service 1 -->
+        <div class="col-md-6 col-lg-3">
+          <div class="service-card">
+            <div class="service-icon"><i class="fab fa-google"></i></div>
+            <h4 class="fw-bold mb-3">Google Ads for Shopify</h4>
+            <p class="text-muted small mb-4">High-intent Search, Performance Max, and Shopping campaigns optimized for net profit profitability.</p>
+            <a href="{% url 'public:services' %}#google-ads" class="fw-bold text-copper mt-auto">Explore Google Ads <i class="fas fa-arrow-right ms-1"></i></a>
+          </div>
+        </div>
+
+        <!-- Service 2 -->
+        <div class="col-md-6 col-lg-3">
+          <div class="service-card">
+            <div class="service-icon"><i class="fas fa-search-dollar"></i></div>
+            <h4 class="fw-bold mb-3">Shopify SEO</h4>
+            <p class="text-muted small mb-4">Technical audit, collection page optimization, and buyer-intent keyword targeting to build organic revenue.</p>
+            <a href="{% url 'public:services' %}#seo" class="fw-bold text-copper mt-auto">Explore SEO <i class="fas fa-arrow-right ms-1"></i></a>
+          </div>
+        </div>
+
+        <!-- Service 3 -->
+        <div class="col-md-6 col-lg-3">
+          <div class="service-card">
+            <div class="service-icon"><i class="fab fa-facebook-f"></i></div>
+            <h4 class="fw-bold mb-3">Meta & Social Ads</h4>
+            <p class="text-muted small mb-4">Direct-to-consumer ad creative strategy, funnel optimization, and scaling across Facebook and Instagram.</p>
+            <a href="{% url 'public:services' %}#meta-ads" class="fw-bold text-copper mt-auto">Explore Paid Social <i class="fas fa-arrow-right ms-1"></i></a>
+          </div>
+        </div>
+
+        <!-- Service 4 -->
+        <div class="col-md-6 col-lg-3">
+          <div class="service-card">
+            <div class="service-icon"><i class="fas fa-filter-circle-dollar"></i></div>
+            <h4 class="fw-bold mb-3">Conversion Rate (CRO)</h4>
+            <p class="text-muted small mb-4">UX audits, checkout friction removal, and split testing to convert a higher percentage of site traffic.</p>
+            <a href="{% url 'public:services' %}#cro" class="fw-bold text-copper mt-auto">Explore CRO <i class="fas fa-arrow-right ms-1"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Shopify Revenue Growth Estimator Section -->
+  <section id="roi-calculator" class="section-padding bg-cream-alt">
+    <div class="container">
+      <div class="row align-items-center gy-5">
+        <div class="col-lg-5">
+          <span class="badge badge-sage mb-2">Interactive Calculator</span>
+          <h2 class="display-6 fw-bold mb-3">Calculate Your Store's Unlocked Profit Potential</h2>
+          <p class="text-muted">Most Shopify stores leave thousands of dollars on the table due to unoptimized search traffic and leaky conversion funnels. Adjust the sliders to see what a profit-first strategy can add to your revenue.</p>
+
+          <div class="d-flex align-items-center gap-3 mt-4">
+            <div class="dart-icon" style="width: 48px; height: 48px; background-color: var(--copper); color: var(--cream); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem;"><i class="fas fa-calculator"></i></div>
+            <div>
+              <h6 class="fw-bold mb-0">Instant Profit Forecast</h6>
+              <p class="small text-muted mb-0">Based on real Digital Darts client benchmarks.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-7">
+          <div class="roi-calculator-card">
+            <h4 class="fw-bold text-cream mb-4"><i class="fas fa-sliders-h me-2 text-sage"></i> Shopify Revenue Growth Estimator</h4>
+
+            <div class="roi-slider-group">
+              <div class="d-flex justify-content-between mb-2">
+                <label class="fw-semibold">Monthly Store Visitors:</label>
+                <span id="trafficVal" class="font-mono text-sage fw-bold">25,000 visitors</span>
+              </div>
+              <input type="range" class="form-range form-range-custom" id="monthlyTraffic" min="5000" max="250000" step="5000" value="25000">
+            </div>
+
+            <div class="roi-slider-group">
+              <div class="d-flex justify-content-between mb-2">
+                <label class="fw-semibold">Current Conversion Rate:</label>
+                <span id="convVal" class="font-mono text-sage fw-bold">1.5%</span>
+              </div>
+              <input type="range" class="form-range form-range-custom" id="currentConvRate" min="0.5" max="5.0" step="0.1" value="1.5">
+            </div>
+
+            <div class="roi-slider-group">
+              <div class="d-flex justify-content-between mb-2">
+                <label class="fw-semibold">Average Order Value (AOV):</label>
+                <span id="aovVal" class="font-mono text-sage fw-bold">$85</span>
+              </div>
+              <input type="range" class="form-range form-range-custom" id="avgOrderValue" min="20" max="500" step="5" value="85">
+            </div>
+
+            <div class="roi-result-box mt-4">
+              <div class="small text-uppercase fw-bold text-sage mb-1" style="letter-spacing: 0.05em;">Estimated Additional Monthly Profit Lift</div>
+              <div id="estMonthlyProfit" class="roi-est-number">+$16,788</div>
+              <div id="estGrowthLift" class="small text-muted font-mono mt-1">+$201,456 / year</div>
+            </div>
+
+            <div class="text-center mt-4">
+              <a href="{% url 'public:contact' %}" class="btn btn-copper w-100 py-3"><i class="fas fa-rocket me-1"></i> Claim This Growth Strategy Now</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Visual Case Studies Grid -->
+  <section class="section-padding">
+    <div class="container">
+      <div class="d-flex justify-content-between align-items-end mb-5 flex-wrap gap-3 section-title-reveal">
+        <div>
+          <span class="badge badge-copper mb-2">Proven Proof</span>
+          <h2 class="display-6 fw-bold mb-0">Real Results for Real Shopify Brands</h2>
+        </div>
+        <a href="{% url 'public:case_studies' %}" class="btn btn-outline-espresso">View All Case Studies <i class="fas fa-arrow-right ms-1"></i></a>
+      </div>
+
+      <div class="row g-4">
+        <!-- Case 1 -->
+        <div class="col-md-6 col-lg-4">
+          <div class="case-card">
+            <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=800&q=80" alt="Apparel E-Commerce Brand" class="case-card-img">
+            <div class="case-card-body">
+              <div class="case-metric-pill">+410% Search Revenue</div>
+              <h4 class="fw-bold mb-2">Apparel & Footwear Brand</h4>
+              <p class="text-muted small mb-4">Scaled organic search and Google Shopping revenue while cutting wasted ad spend on broad non-converting terms.</p>
+              <div class="border-top pt-3 d-flex justify-content-between text-muted small">
+                <span>Services: <strong>SEO & Google Ads</strong></span>
+                <span>Timeframe: <strong>6 Months</strong></span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Case 2 -->
+        <div class="col-md-6 col-lg-4">
+          <div class="case-card">
+            <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=800&q=80" alt="Luxury Goods E-Commerce" class="case-card-img">
+            <div class="case-card-body">
+              <div class="case-metric-pill">+185% Net Profit</div>
+              <h4 class="fw-bold mb-2">Luxury Goods Retailer</h4>
+              <p class="text-muted small mb-4">Restructured Performance Max campaigns to prioritize high-margin SKU clusters, yielding record annual profit.</p>
+              <div class="border-top pt-3 d-flex justify-content-between text-muted small">
+                <span>Services: <strong>Google PMax & CRO</strong></span>
+                <span>Timeframe: <strong>9 Months</strong></span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Case 3 -->
+        <div class="col-md-6 col-lg-4">
+          <div class="case-card">
+            <img src="https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=800&q=80" alt="Cosmetics & Health DTC" class="case-card-img">
+            <div class="case-card-body">
+              <div class="case-metric-pill">$1.2M Organic Scale</div>
+              <h4 class="fw-bold mb-2">Health & Cosmetics DTC</h4>
+              <p class="text-muted small mb-4">Executed a technical Shopify overhaul and targeted content siloing strategy that drove 5x organic store sales.</p>
+              <div class="border-top pt-3 d-flex justify-content-between text-muted small">
+                <span>Services: <strong>Shopify SEO</strong></span>
+                <span>Timeframe: <strong>12 Months</strong></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Free Resource: The 4-Rules of Store Growth Playbook -->
+  <section id="playbook" class="section-padding bg-espresso">
+    <div class="container">
+      <div class="row align-items-center gy-5">
+        <div class="col-lg-6">
+          <span class="badge badge-sage mb-3">Free Resource</span>
+          <h2 class="display-6 fw-bold mb-3 text-cream">The 4-Rules of Store Growth Playbook</h2>
+          <p class="text-light-muted mb-4">Learn the exact profit-first methodology we use to scale Shopify stores from $20k/month to over $500k/month. Avoid common agency traps and focus on what actually drives cash flow.</p>
+
+          <div class="img-card-luxury mb-4 d-none d-md-block">
+            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80" alt="Shopify Growth Playbook PDF" style="height: 200px;">
+          </div>
+
+          <ul class="list-unstyled d-flex flex-column gap-2 mb-4 text-cream">
+            <li class="d-flex align-items-center gap-2"><i class="fas fa-check text-sage"></i> How to calculate your store's true Break-Even ROAS</li>
+            <li class="d-flex align-items-center gap-2"><i class="fas fa-check text-sage"></i> The 3 Google Search campaign structures that scale</li>
+            <li class="d-flex align-items-center gap-2"><i class="fas fa-check text-sage"></i> Shopify technical SEO checklist for collection pages</li>
+          </ul>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="card p-4 p-md-5 border-0 shadow-lg" style="background-color: var(--cream); color: var(--espresso); border-radius: var(--radius-lg);">
+            <h4 class="fw-bold mb-3"><i class="fas fa-book-open me-2 text-copper"></i> Download the Free Playbook</h4>
+            <p class="small text-muted mb-4">Join 10,000+ Shopify founders and marketing leaders who read our strategy guides.</p>
+
+            <!-- Playbook Form embedded on homepage -->
+            <form id="playbookForm" novalidate>
+              <div class="mb-3">
+                <label class="form-label fw-semibold">First Name <span class="text-danger">*</span></label>
+                <input type="text" class="form-control form-control-custom" placeholder="e.g. Sarah" required>
+                <div class="invalid-feedback">Please enter your first name.</div>
+              </div>
+              <div class="mb-3">
+                <label class="form-label fw-semibold">Store URL <span class="text-danger">*</span></label>
+                <input type="url" class="form-control form-control-custom" placeholder="https://yourstore.com" required>
+                <div class="invalid-feedback">Please enter a valid website URL (e.g. https://yourstore.com).</div>
+              </div>
+              <div class="mb-4">
+                <label class="form-label fw-semibold">Business Email <span class="text-danger">*</span></label>
+                <input type="email" class="form-control form-control-custom" placeholder="sarah@yourstore.com" required>
+                <div class="invalid-feedback">Please enter a valid business email address.</div>
+              </div>
+              <button type="submit" class="btn btn-copper w-100 py-3"><i class="fas fa-download me-1"></i> Get Instant Access (Free PDF)</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="section-padding bg-cream-alt">
+    <div class="container">
+      <div class="section-header-centered mb-5 section-title-reveal">
+        <span class="badge badge-sage mb-2">Verified Client Reviews</span>
+        <h2 class="display-6 fw-bold text-center">What Shopify Founders Say</h2>
+      </div>
+
+      <div class="row g-4">
+        <!-- Founder 1 -->
+        <div class="col-md-6 col-lg-4">
+          <div class="testimonial-card">
+            <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+            <p class="text-muted mb-4">"Digital Darts doubled our Google Ads profit in less than 90 days. Unlike previous agencies that just focused on vanity ROAS, they actually care about our bottom-line net margin."</p>
+            <div class="d-flex align-items-center gap-3">
+              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80" alt="James Davies" class="testimonial-avatar-img">
+              <div>
+                <h6 class="fw-bold mb-0">James Davies</h6>
+                <div class="small text-muted">Founder, ActiveGear Australia</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Founder 2 -->
+        <div class="col-md-6 col-lg-4">
+          <div class="testimonial-card">
+            <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+            <p class="text-muted mb-4">"Their Shopify SEO expertise is top-notch. Our organic traffic grew by over 300% year-over-year, and we now rank #1 for our most valuable collection keywords."</p>
+            <div class="d-flex align-items-center gap-3">
+              <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80" alt="Melissa Knight" class="testimonial-avatar-img">
+              <div>
+                <h6 class="fw-bold mb-0">Melissa Knight</h6>
+                <div class="small text-muted">Marketing Director, Organics Direct</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Founder 3 -->
+        <div class="col-md-6 col-lg-4">
+          <div class="testimonial-card">
+            <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+            <p class="text-muted mb-4">"Working with Digital Darts felt like adding senior e-commerce veterans to our team. Transparent reporting, no fluff, just consistent month-over-month growth."</p>
+            <div class="d-flex align-items-center gap-3">
+              <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=200&q=80" alt="Rachel Lawson" class="testimonial-avatar-img">
+              <div>
+                <h6 class="fw-bold mb-0">Rachel Lawson</h6>
+                <div class="small text-muted">Co-Founder, Craftsman Leather</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Accordion Section -->
+  <section class="section-padding">
+    <div class="container">
+      <div class="section-header-centered mb-5 section-title-reveal">
+        <span class="badge badge-copper mb-2">Got Questions?</span>
+        <h2 class="display-6 fw-bold text-center">Frequently Asked Questions</h2>
+      </div>
+
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <div class="accordion accordion-flush" id="faqAccordion">
+            <div class="accordion-item bg-transparent border-bottom border-secondary mb-3">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed bg-white rounded shadow-sm fw-bold text-espresso" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                  What makes Digital Darts different from other marketing agencies?
+                </button>
+              </h2>
+              <div id="faq1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                <div class="accordion-body text-muted">
+                  We specialize exclusively in Shopify and Shopify Plus stores, focusing strictly on net profit rather than vanity ROAS figures. Your account is managed directly by senior specialists with no long-term lock-in contracts.
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item bg-transparent border-bottom border-secondary mb-3">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed bg-white rounded shadow-sm fw-bold text-espresso" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                  What is your minimum monthly ad spend requirement?
+                </button>
+              </h2>
+              <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                <div class="accordion-body text-muted">
+                  We generally work with stores spending at least $5,000/month on Google or Meta ads, or stores doing $20,000+/month in total revenue.
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item bg-transparent border-bottom border-secondary">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed bg-white rounded shadow-sm fw-bold text-espresso" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                  How does the free store audit process work?
+                </button>
+              </h2>
+              <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                <div class="accordion-body text-muted">
+                  Once you submit your store URL, our senior strategist performs a manual video review of your Google Ads setup, Liquid theme technical SEO, and conversion bottlenecks. You receive a personalized 10-15 minute Loom video teardown within 24 hours.
+                </div>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Loom Video Audit Teardown Preview Modal -->
+  <div class="modal fade" id="videoAuditModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content border-0 shadow-lg bg-espresso text-cream" style="border-radius: var(--radius-md);">
+        <div class="modal-header border-bottom border-secondary border-opacity-25">
+          <h5 class="modal-header-title mb-0 fw-bold text-cream"><i class="fas fa-video me-2 text-sage"></i> Sample 15-Minute Senior Store Audit Teardown</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body p-4 text-center">
+          <div class="ratio ratio-16x9 rounded overflow-hidden mb-3 border border-secondary border-opacity-25">
+            <iframe src="https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ?controls=0" title="Shopify Store Audit Teardown" allowfullscreen></iframe>
+          </div>
+          <p class="small text-light-muted mb-3">Every video audit is recorded live by senior strategist <strong>Rahul</strong> with no fluff, covering your Google Ads structure, Liquid theme SEO, and net profit margins.</p>
+          <a href="{% url 'public:contact' %}" class="btn btn-copper btn-sm px-4 fw-bold"><i class="fas fa-paper-plane me-1"></i> Request Your Free Audit Video</a>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

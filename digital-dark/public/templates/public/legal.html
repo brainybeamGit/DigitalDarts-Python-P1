@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{ title }} - Digital Dark{% endblock %}
+
+{% block content %}
+<section class="section-padding bg-cream">
+  <div class="container max-w-800 my-5">
+    <div class="card p-5 border-0 shadow-sm" style="background-color: #FFFDF8; border-radius: 20px;">
+      <h1 class="display-6 fw-bold mb-4 text-espresso">{{ title }}</h1>
+      <div class="text-muted lead font-mono mb-4" style="font-size: 0.95rem;">Last Updated: {{ page.updated_at|date:"F d, Y"|default:"September 2026" }}</div>
+      
+      <div class="content-body text-dark" style="line-height: 1.8; white-space: pre-wrap;">
+        {{ page.content|default:"Digital Dark values your privacy and data security. All information submitted through our forms is stored securely and never shared with third parties." }}
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

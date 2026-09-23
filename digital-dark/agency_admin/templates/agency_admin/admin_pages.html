@@ -1,0 +1,31 @@
+{% extends 'admin_base.html' %}
+{% block title %}Legal Pages Content - Custom Admin{% endblock %}
+
+{% block content %}
+<div class="admin-card p-4 max-w-800">
+  <div class="d-flex align-items-center justify-content-between border-bottom pb-3 mb-4">
+    <h4 class="fw-bold mb-0"><i class="fas fa-file-alt me-2 text-info"></i> Legal & Compliance Content Management</h4>
+  </div>
+
+  {% if messages %}
+    {% for message in messages %}
+      <div class="alert alert-success py-2 px-3 small rounded-3 mb-3">{{ message }}</div>
+    {% endfor %}
+  {% endif %}
+
+  <form method="POST">
+    {% csrf_token %}
+    <div class="mb-4">
+      <label class="form-label fw-bold">Privacy Policy Content (/privacy/)</label>
+      <textarea name="privacy_content" class="form-control font-mono" rows="8" required>{{ privacy_page.content }}</textarea>
+    </div>
+
+    <div class="mb-4">
+      <label class="form-label fw-bold">Terms of Service Content (/terms/)</label>
+      <textarea name="terms_content" class="form-control font-mono" rows="8" required>{{ terms_page.content }}</textarea>
+    </div>
+
+    <button type="submit" class="btn btn-dark fw-bold px-4">Update Legal Pages</button>
+  </form>
+</div>
+{% endblock %}

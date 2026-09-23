@@ -1,0 +1,101 @@
+{% extends 'admin_base.html' %}
+{% block title %}Staff Workspace Overview - Digital Dark{% endblock %}
+
+{% block content %}
+<div class="row g-4 mb-4">
+  <div class="col-md-6">
+    <div class="admin-card p-4 d-flex align-items-center justify-content-between border-start border-4 border-warning">
+      <div>
+        <h6 class="text-muted mb-1 text-uppercase fw-bold" style="font-size: 0.75rem;">New Inbound Leads</h6>
+        <h2 class="fw-extrabold text-dark mb-0">{{ new_leads_count }}</h2>
+        <span class="small text-muted">Awaiting staff response</span>
+      </div>
+      <div class="stat-icon bg-warning-subtle text-warning rounded-circle p-3 fs-3">
+        <i class="fas fa-user-clock"></i>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-6">
+    <div class="admin-card p-4 d-flex align-items-center justify-content-between border-start border-4 border-info">
+      <div>
+        <h6 class="text-muted mb-1 text-uppercase fw-bold" style="font-size: 0.75rem;">Draft Posts Pending</h6>
+        <h2 class="fw-extrabold text-dark mb-0">{{ pending_drafts_count }}</h2>
+        <span class="small text-muted">Drafts awaiting admin publish approval</span>
+      </div>
+      <div class="stat-icon bg-info-subtle text-info rounded-circle p-3 fs-3">
+        <i class="fas fa-file-signature"></i>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row g-4">
+  <!-- Recent Inbound Leads -->
+  <div class="col-lg-7">
+    <div class="admin-card p-4 h-100">
+      <div class="d-flex align-items-center justify-content-between mb-3">
+        <h5 class="fw-bold mb-0"><i class="fas fa-inbox text-warning me-2"></i> Inbound Audit Leads</h5>
+        <a href="{% url 'agency_admin:staff_leads_list' %}" class="btn btn-sm btn-outline-dark">View All</a>
+      </div>
+      <div class="table-responsive">
+        <table class="table table-hover align-middle">
+          <thead>
+            <tr>
+              <th>Contact</th>
+              <th>Source</th>
+              <th>Status</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for lead in recent_leads %}
+              <tr>
+                <td>
+                  <strong class="d-block text-dark">{{ lead.name|default:"Subscriber" }}</strong>
+                  <span class="small text-muted">{{ lead.email }}</span>
+                </td>
+                <td><span class="badge bg-secondary">{{ lead.get_source_display }}</span></td>
+                <td>
+                  {% if lead.status == 'new' %}
+                    <span class="badge bg-danger">New</span>
+                  {% elif lead.status == 'contacted' %}
+                    <span class="badge bg-warning text-dark">Contacted</span>
+                  {% elif lead.status == 'qualified' %}
+                    <span class="badge bg-success">Qualified</span>
+                  {% else %}
+                    <span class="badge bg-dark">Closed</span>
+                  {% endif %}
+                </td>
+                <td>
+                  <a href="{% url 'agency_admin:staff_lead_detail' lead.id %}" class="btn btn-sm btn-primary">Details</a>
+                </td>
+              </tr>
+            {% empty %}
+              <tr><td colspan="4" class="text-muted">No leads recorded yet.</td></tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- Staff Quick Actions & My Drafts -->
+  <div class="col-lg-5">
+    <div class="admin-card p-4 mb-4">
+      <h5 class="fw-bold mb-3"><i class="fas fa-plus-circle me-2 text-copper"></i> Staff Content Actions</h5>
+      <div class="d-grid gap-2">
+        <a href="{% url 'agency_admin:staff_post_create' %}" class="btn btn-dark text-start p-3">
+          <i class="fas fa-pen-nib me-2 text-warning"></i> Write New Blog Draft
+        </a>
+        <a href="{% url 'agency_admin:staff_case_study_create' %}" class="btn btn-dark text-start p-3">
+          <i class="fas fa-briefcase me-2 text-info"></i> Create Case Study Draft
+        </a>
+        <a href="{% url 'agency_admin:staff_guide_create' %}" class="btn btn-dark text-start p-3">
+          <i class="fas fa-upload me-2 text-success"></i> Upload Guide PDF Resource
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

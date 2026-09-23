@@ -1,0 +1,85 @@
+{% extends 'admin_base.html' %}
+{% block title %}Lead #{{ lead.id }} Details - Staff Portal{% endblock %}
+
+{% block content %}
+<div class="row g-4">
+  <div class="col-lg-7">
+    <div class="admin-card p-4">
+      <div class="d-flex align-items-center justify-content-between border-bottom pb-3 mb-3">
+        <h4 class="fw-bold mb-0">Lead #{{ lead.id }} Information</h4>
+        <a href="{% url 'agency_admin:staff_leads_list' %}" class="btn btn-sm btn-outline-secondary">
+          <i class="fas fa-arrow-left me-1"></i> Back to Leads
+        </a>
+      </div>
+
+      {% if messages %}
+        {% for message in messages %}
+          <div class="alert alert-success py-2 px-3 small rounded-3 mb-3">{{ message }}</div>
+        {% endfor %}
+      {% endif %}
+
+      <div class="mb-3">
+        <label class="text-muted small fw-bold text-uppercase">Full Name</label>
+        <div class="fs-5 fw-bold text-dark">{{ lead.name|default:"Not specified" }}</div>
+      </div>
+
+      <div class="mb-3">
+        <label class="text-muted small fw-bold text-uppercase">Email Address</label>
+        <div class="fs-6 text-dark"><a href="mailto:{{ lead.email }}">{{ lead.email }}</a></div>
+      </div>
+
+      <div class="row mb-3">
+        <div class="col-6">
+          <label class="text-muted small fw-bold text-uppercase">Source</label>
+          <div><span class="badge bg-secondary fs-6">{{ lead.get_source_display }}</span></div>
+        </div>
+        <div class="col-6">
+          <label class="text-muted small fw-bold text-uppercase">Submission Date</label>
+          <div class="small text-dark fw-semibold">{{ lead.created_at|date:"F d, Y H:i" }}</div>
+        </div>
+      </div>
+
+      {% if lead.message %}
+        <div class="mb-4">
+          <label class="text-muted small fw-bold text-uppercase">Message / Inquiry</label>
+          <div class="p-3 bg-light rounded-3 border text-dark">{{ lead.message }}</div>
+        </div>
+      {% endif %}
+
+      <form method="POST" class="border-top pt-4">
+        {% csrf_token %}
+        <h5 class="fw-bold mb-3"><i class="fas fa-tasks me-2 text-copper"></i> Update Lead Status & Add Notes</h5>
+
+        <div class="mb-3">
+          <label class="form-label fw-semibold">Current Lead Status</label>
+          <select name="status" class="form-select">
+            <option value="new" {% if lead.status == 'new' %}selected{% endif %}>New</option>
+            <option value="contacted" {% if lead.status == 'contacted' %}selected{% endif %}>Contacted</option>
+            <option value="qualified" {% if lead.status == 'qualified' %}selected{% endif %}>Qualified</option>
+            <option value="closed" {% if lead.status == 'closed' %}selected{% endif %}>Closed</option>
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label fw-semibold">Append Internal Staff Note</label>
+          <textarea name="note" class="form-control" rows="3" placeholder="Enter follow-up call notes or audit observations..."></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-dark fw-bold px-4">Save Lead Updates</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Internal Notes History -->
+  <div class="col-lg-5">
+    <div class="admin-card p-4">
+      <h5 class="fw-bold mb-3"><i class="fas fa-clipboard-list me-2 text-info"></i> Activity & Notes History</h5>
+      {% if lead.notes %}
+        <div class="p-3 bg-dark text-light rounded-3 font-mono small" style="white-space: pre-wrap; line-height: 1.6;">{{ lead.notes }}</div>
+      {% else %}
+        <div class="p-4 text-center text-muted bg-light rounded-3">No staff notes added yet. Use the form on the left to record updates.</div>
+      {% endif %}
+    </div>
+  </div>
+</div>
+{% endblock %}

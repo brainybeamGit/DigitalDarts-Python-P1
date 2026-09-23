@@ -1,0 +1,90 @@
+{% extends 'admin_base.html' %}
+{% block title %}Superuser Leads CRM & Export - Custom Admin{% endblock %}
+
+{% block content %}
+<div class="admin-card p-4">
+  <div class="d-flex flex-wrap align-items-center justify-content-between gap-3 mb-4">
+    <div>
+      <h4 class="fw-bold mb-1"><i class="fas fa-inbox me-2 text-primary"></i> Master Leads CRM & Export Center</h4>
+      <p class="small text-muted mb-0">Full CRUD operations on leads, status tracking, and instant CSV data export.</p>
+    </div>
+
+    <div class="d-flex align-items-center gap-2">
+      <a href="{% url 'agency_admin:admin_leads_export_csv' %}" class="btn btn-success fw-bold">
+        <i class="fas fa-file-csv me-1"></i> Export All Leads (CSV)
+      </a>
+    </div>
+  </div>
+
+  <!-- Filter Bar -->
+  <form method="GET" class="row g-2 mb-4">
+    <div class="col-md-3">
+      <select name="status" class="form-select form-select-sm" onchange="this.form.submit()">
+        <option value="">Filter Status: All</option>
+        <option value="new" {% if selected_status == 'new' %}selected{% endif %}>New</option>
+        <option value="contacted" {% if selected_status == 'contacted' %}selected{% endif %}>Contacted</option>
+        <option value="qualified" {% if selected_status == 'qualified' %}selected{% endif %}>Qualified</option>
+        <option value="closed" {% if selected_status == 'closed' %}selected{% endif %}>Closed</option>
+      </select>
+    </div>
+    <div class="col-md-3">
+      <select name="source" class="form-select form-select-sm" onchange="this.form.submit()">
+        <option value="">Filter Source: All</option>
+        <option value="contact" {% if selected_source == 'contact' %}selected{% endif %}>Contact Form</option>
+        <option value="newsletter" {% if selected_source == 'newsletter' %}selected{% endif %}>Newsletter Signup</option>
+        <option value="guide" {% if selected_source == 'guide' %}selected{% endif %}>Guide Download</option>
+        <option value="course" {% if selected_source == 'course' %}selected{% endif %}>Free Course</option>
+      </select>
+    </div>
+    {% if selected_status or selected_source %}
+      <div class="col-auto">
+        <a href="{% url 'agency_admin:admin_leads_list' %}" class="btn btn-sm btn-outline-secondary">Reset Filters</a>
+      </div>
+    {% endif %}
+  </form>
+
+  <div class="table-responsive">
+    <table class="table table-hover align-middle">
+      <thead class="table-light">
+        <tr>
+          <th>ID</th>
+          <th>Lead Name</th>
+          <th>Email Address</th>
+          <th>Source</th>
+          <th>Status</th>
+          <th>Created Date</th>
+          <th class="text-end">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for lead in leads %}
+          <tr>
+            <td><strong>#{{ lead.id }}</strong></td>
+            <td class="fw-bold text-dark">{{ lead.name|default:"--" }}</td>
+            <td><a href="mailto:{{ lead.email }}">{{ lead.email }}</a></td>
+            <td><span class="badge bg-secondary">{{ lead.get_source_display }}</span></td>
+            <td>
+              {% if lead.status == 'new' %}
+                <span class="badge bg-danger">New</span>
+              {% elif lead.status == 'contacted' %}
+                <span class="badge bg-warning text-dark">Contacted</span>
+              {% elif lead.status == 'qualified' %}
+                <span class="badge bg-success">Qualified</span>
+              {% else %}
+                <span class="badge bg-dark">Closed</span>
+              {% endif %}
+            </td>
+            <td class="small text-muted">{{ lead.created_at|date:"M d, Y H:i" }}</td>
+            <td class="text-end">
+              <a href="{% url 'agency_admin:admin_lead_detail' lead.id %}" class="btn btn-sm btn-outline-dark me-1">Edit / View</a>
+              <a href="{% url 'agency_admin:admin_lead_delete' lead.id %}" class="btn btn-sm btn-outline-danger" onclick="return confirm('Delete lead #{{ lead.id }}?');">Delete</a>
+            </td>
+          </tr>
+        {% empty %}
+          <tr><td colspan="7" class="text-center py-4 text-muted">No leads found.</td></tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}

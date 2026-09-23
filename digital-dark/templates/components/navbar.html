@@ -1,0 +1,46 @@
+{% load static %}
+<!-- Top Announcement Bar -->
+<div class="announcement-bar text-center">
+  <div class="container">
+    <i class="fas fa-gift text-sage me-1"></i> <strong>Free Playbook:</strong> Learn the 4 Rules of Store Growth to double your profit. <a href="{% url 'public:guides' %}">Download PDF <i class="fas fa-arrow-right"></i></a>
+  </div>
+</div>
+
+<!-- Luxury Navbar (Sticky to Top) -->
+<nav class="navbar navbar-expand-lg navbar-custom sticky-top">
+  <div class="container">
+    <a class="brand-logo" href="{% url 'public:index' %}">
+      <div class="dart-icon"><i class="fas fa-bullseye"></i></div>
+      <span>Digital Dark</span>
+    </a>
+    
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navContent">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navContent">
+      <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link nav-link-custom {% if request.resolver_match.url_name == 'index' %}active{% endif %}" href="{% url 'public:index' %}">Home</a></li>
+        <li class="nav-item"><a class="nav-link nav-link-custom {% if request.resolver_match.url_name == 'services' %}active{% endif %}" href="{% url 'public:services' %}">Services</a></li>
+        <li class="nav-item"><a class="nav-link nav-link-custom {% if 'case' in request.resolver_match.url_name %}active{% endif %}" href="{% url 'public:case_studies' %}">Case Studies</a></li>
+        <li class="nav-item"><a class="nav-link nav-link-custom {% if 'blog' in request.resolver_match.url_name %}active{% endif %}" href="{% url 'public:blog' %}">Blog</a></li>
+        <li class="nav-item"><a class="nav-link nav-link-custom {% if request.resolver_match.url_name == 'guides' %}active{% endif %}" href="{% url 'public:guides' %}">Guides</a></li>
+        <li class="nav-item"><a class="nav-link nav-link-custom {% if request.resolver_match.url_name == 'free_course' %}active{% endif %}" href="{% url 'public:free_course' %}">Free Course</a></li>
+        <li class="nav-item"><a class="nav-link nav-link-custom {% if request.resolver_match.url_name == 'contact' %}active{% endif %}" href="{% url 'public:contact' %}">Contact</a></li>
+      </ul>
+      <div class="d-flex align-items-center gap-2">
+        {% if user.is_authenticated %}
+          {% if user.is_superuser %}
+            <a href="{% url 'agency_admin:admin_dashboard' %}" class="btn btn-warning btn-sm fw-bold"><i class="fas fa-crown"></i> Admin Control</a>
+          {% else %}
+            <a href="{% url 'agency_admin:staff_dashboard' %}" class="btn btn-info btn-sm fw-bold"><i class="fas fa-user-shield"></i> Staff Portal</a>
+          {% endif %}
+        {% else %}
+          <a href="{% url 'agency_admin:staff_login' %}" class="btn btn-outline-espresso btn-sm fw-semibold"><i class="fas fa-user-shield me-1"></i> Staff Login</a>
+          <a href="{% url 'agency_admin:admin_login' %}" class="btn btn-outline-dark btn-sm fw-semibold"><i class="fas fa-crown me-1"></i> Admin Portal</a>
+        {% endif %}
+        <a href="{% url 'public:contact' %}" class="btn btn-copper btn-sm ms-1"><i class="fas fa-chart-line"></i> Audit</a>
+      </div>
+    </div>
+  </div>
+</nav>

@@ -1,0 +1,247 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Services - Digital Darts | Shopify Growth Marketing{% endblock %}
+
+{% block content %}
+  <!-- Luxury Page Header Hero -->
+  <section class="section-padding bg-cream-alt text-center relative overflow-hidden">
+    <div class="container">
+      <span class="badge badge-copper mb-3 section-title-reveal"><i class="fas fa-sparkles me-1"></i> E-Commerce Growth Solutions</span>
+      <h1 class="display-4 fw-bold mb-3 section-title-reveal">Shopify Growth Services Built for Net Profit</h1>
+      <p class="text-muted max-w-600 mx-auto mb-4 section-title-reveal">We do one thing exceptionally well: growing the net profit of Shopify stores through data-backed Google Ads, SEO, paid social, and CRO.</p>
+
+      <!-- Quick Jump Buttons -->
+      <div class="d-flex justify-content-center flex-wrap gap-2 pt-2">
+        <a href="#google-ads" class="btn btn-outline-espresso btn-sm"><i class="fab fa-google text-copper me-1"></i> Google Ads</a>
+        <a href="#seo" class="btn btn-outline-espresso btn-sm"><i class="fas fa-search-dollar text-copper me-1"></i> Shopify SEO</a>
+        <a href="#meta-ads" class="btn btn-outline-espresso btn-sm"><i class="fab fa-facebook-f text-copper me-1"></i> Paid Social</a>
+        <a href="#cro" class="btn btn-outline-espresso btn-sm"><i class="fas fa-filter-circle-dollar text-copper me-1"></i> CRO & UX Audits</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Service Deep Dive 1: Google Ads -->
+  <section id="google-ads" class="section-padding">
+    <div class="container">
+      <div class="row align-items-center gy-5">
+        <div class="col-lg-6">
+          <div class="service-icon"><i class="fab fa-google"></i></div>
+          <span class="badge badge-sage mb-2">Service Solution #1</span>
+          <h2 class="display-6 fw-bold mb-3">Shopify Google Ads Management</h2>
+          <p class="text-muted mb-4">Google Ads is the most profitable acquisition channel for e-commerce brands when structured correctly. We eliminate wasteful generic search queries and focus ad budget on high-margin SKU clusters.</p>
+
+          <div class="row g-3 mb-4">
+            <div class="col-sm-6">
+              <div class="p-3 bg-white rounded border shadow-sm h-100">
+                <h6 class="fw-bold text-copper mb-1"><i class="fas fa-layer-group me-1"></i> SKU Margin Clustering</h6>
+                <p class="small text-muted mb-0">Structuring Performance Max asset groups by gross margin targets.</p>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="p-3 bg-white rounded border shadow-sm h-100">
+                <h6 class="fw-bold text-copper mb-1"><i class="fas fa-shield-virus me-1"></i> Brand Negative Architecture</h6>
+                <p class="small text-muted mb-0">Preventing brand search traffic from inflating non-brand ROAS metrics.</p>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="p-3 bg-white rounded border shadow-sm h-100">
+                <h6 class="fw-bold text-copper mb-1"><i class="fab fa-youtube me-1"></i> YouTube Retargeting</h6>
+                <p class="small text-muted mb-0">High-converting video retargeting for high AOV shoppers.</p>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="p-3 bg-white rounded border shadow-sm h-100">
+                <h6 class="fw-bold text-copper mb-1"><i class="fas fa-server me-1"></i> GA4 Server-Side Tracking</h6>
+                <p class="small text-muted mb-0">Bypassing iOS tracking loss with direct server attribution.</p>
+              </div>
+            </div>
+          </div>
+
+          <a href="{% url 'public:contact' %}" class="btn btn-copper"><i class="fas fa-paper-plane me-1"></i> Audit My Google Ads Account</a>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="img-card-luxury">
+            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80" alt="Google Ads Analytics Dashboard" style="height: 380px;">
+          </div>
+          
+          <div class="card p-4 border-0 shadow-md bg-white mt-4" style="border-radius: var(--radius-md);">
+            <div class="d-flex justify-content-between align-items-center mb-2">
+              <span class="fw-bold text-espresso">Google Ads Proven Benchmark</span>
+              <span class="badge badge-sage">+340% ROAS Lift</span>
+            </div>
+            <div class="d-flex justify-content-between text-muted small">
+              <span>Average Search Revenue Lift: <strong class="text-copper">+$142,500/mo</strong></span>
+              <span>CAC Reduction: <strong class="text-success">-42%</strong></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="container opacity-25">
+
+  <!-- Service Deep Dive 2: Shopify SEO -->
+  <section id="seo" class="section-padding">
+    <div class="container">
+      <div class="row align-items-center gy-5 flex-row-reverse">
+        <div class="col-lg-6">
+          <div class="service-icon"><i class="fas fa-search-dollar"></i></div>
+          <span class="badge badge-sage mb-2">Service Solution #2</span>
+          <h2 class="display-6 fw-bold mb-3">Shopify SEO & Technical Architecture</h2>
+          <p class="text-muted mb-4">Organic search provides compounding revenue without per-click ad costs. We fix Shopify Liquid template canonical issues, optimize collection hierarchies, and acquire high-DA niche backlinks.</p>
+
+          <ul class="list-unstyled d-flex flex-column gap-3 mb-4">
+            <li class="d-flex align-items-center gap-3">
+              <div class="dart-icon" style="width: 36px; height: 36px; background: rgba(157, 102, 56, 0.15); color: var(--copper); border-radius: 50%; display: flex; align-items: center; justify-content: center;"><i class="fas fa-check"></i></div>
+              <div><strong class="text-espresso">Liquid Theme Technical Speed Audit:</strong> Eliminating heavy JavaScript bloat and app script latency.</div>
+            </li>
+            <li class="d-flex align-items-center gap-3">
+              <div class="dart-icon" style="width: 36px; height: 36px; background: rgba(157, 102, 56, 0.15); color: var(--copper); border-radius: 50%; display: flex; align-items: center; justify-content: center;"><i class="fas fa-check"></i></div>
+              <div><strong class="text-espresso">Collection Siloing:</strong> Structuring high-intent collection categories for rank #1 keywords.</div>
+            </li>
+            <li class="d-flex align-items-center gap-3">
+              <div class="dart-icon" style="width: 36px; height: 36px; background: rgba(157, 102, 56, 0.15); color: var(--copper); border-radius: 50%; display: flex; align-items: center; justify-content: center;"><i class="fas fa-check"></i></div>
+              <div><strong class="text-espresso">High-DA Backlink Acquisition:</strong> White hat editorial links from high-authority retail publications.</div>
+            </li>
+          </ul>
+
+          <a href="{% url 'public:contact' %}" class="btn btn-copper"><i class="fas fa-paper-plane me-1"></i> Audit My Shopify SEO</a>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="img-card-luxury">
+            <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=800&q=80" alt="Shopify SEO Luxury Brand Storefront" style="height: 380px;">
+          </div>
+
+          <div class="card p-4 border-0 shadow-md bg-white mt-4" style="border-radius: var(--radius-md);">
+            <div class="d-flex justify-content-between align-items-center mb-2">
+              <span class="fw-bold text-espresso">Shopify Organic SEO Benchmark</span>
+              <span class="badge badge-sage">5x Organic Sales</span>
+            </div>
+            <div class="d-flex justify-content-between text-muted small">
+              <span>Organic Impressions: <strong class="text-copper">1,240,000/mo</strong></span>
+              <span>Rank #1 Keywords: <strong class="text-success">48 Collection Terms</strong></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="container opacity-25">
+
+  <!-- Service Deep Dive 3: Meta & Paid Social -->
+  <section id="meta-ads" class="section-padding">
+    <div class="container">
+      <div class="row align-items-center gy-5">
+        <div class="col-lg-6">
+          <div class="service-icon"><i class="fab fa-facebook-f"></i></div>
+          <span class="badge badge-sage mb-2">Service Solution #3</span>
+          <h2 class="display-6 fw-bold mb-3">Meta & Paid Social Scaling</h2>
+          <p class="text-muted mb-4">Direct-to-consumer ad creative strategy, funnel optimization, and scaling across Facebook and Instagram Advantage+ Shopping campaigns.</p>
+
+          <ul class="list-unstyled d-flex flex-column gap-2 mb-4 text-muted">
+            <li><i class="fas fa-check text-copper me-2"></i> Custom DTC ad creative testing framework</li>
+            <li><i class="fas fa-check text-copper me-2"></i> Middle-of-funnel retargeting for cart abandoners</li>
+            <li><i class="fas fa-check text-copper me-2"></i> Advantage+ Shopping Campaign (ASC+) scaling</li>
+          </ul>
+
+          <a href="{% url 'public:contact' %}" class="btn btn-copper"><i class="fas fa-paper-plane me-1"></i> Audit My Meta Ads</a>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="img-card-luxury">
+            <img src="https://images.unsplash.com/photo-1556742049-0a670fc8078a?auto=format&fit=crop&w=800&q=80" alt="Meta Social Shopping Campaign" style="height: 360px;">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="container opacity-25">
+
+  <!-- Service Deep Dive 4: Conversion Rate Optimization (CRO) -->
+  <section id="cro" class="section-padding">
+    <div class="container">
+      <div class="row align-items-center gy-5 flex-row-reverse">
+        <div class="col-lg-6">
+          <div class="service-icon"><i class="fas fa-filter-circle-dollar"></i></div>
+          <span class="badge badge-sage mb-2">Service Solution #4</span>
+          <h2 class="display-6 fw-bold mb-3">Conversion Rate Optimization (CRO)</h2>
+          <p class="text-muted mb-4">Converting a higher percentage of your existing store traffic is the fastest way to boost net revenue without increasing ad spend.</p>
+
+          <ul class="list-unstyled d-flex flex-column gap-2 mb-4 text-muted">
+            <li><i class="fas fa-check text-copper me-2"></i> Liquid theme checkout UX friction removal</li>
+            <li><i class="fas fa-check text-copper me-2"></i> Sticky Add-To-Cart & slide-out cart upsells</li>
+            <li><i class="fas fa-check text-copper me-2"></i> A/B split testing on key product landing pages</li>
+          </ul>
+
+          <a href="{% url 'public:contact' %}" class="btn btn-copper"><i class="fas fa-paper-plane me-1"></i> Audit My Conversion Rate</a>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="img-card-luxury">
+            <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=800&q=80" alt="E-Commerce Conversion Rate Optimization" style="height: 360px;">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- The 4-Step Profit Framework Vertical Timeline -->
+  <section class="section-padding bg-espresso">
+    <div class="container">
+      <div class="text-center max-w-600 mb-5 section-title-reveal">
+        <span class="badge badge-sage mb-2">Our Framework</span>
+        <h2 class="display-6 fw-bold text-cream">The 4-Step Profit Growth Framework</h2>
+        <p class="text-light-muted">How we predictably turn underperforming Shopify marketing into a high-yield profit center.</p>
+      </div>
+
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <div class="timeline-vertical">
+            <!-- Step 1 -->
+            <div class="timeline-item">
+              <div class="timeline-dot">1</div>
+              <h4 class="fw-bold text-cream">Deep Profit & Margin Audit</h4>
+              <p class="text-light-muted">We analyze your historical Google Ads account, GA4 attribution, product gross margins, and break-even ROAS targets to establish exact targets.</p>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="timeline-item">
+              <div class="timeline-dot">2</div>
+              <h4 class="fw-bold text-cream">Campaign Architecture Restructure</h4>
+              <p class="text-light-muted">We eliminate ad budget bleeding on low-margin products, rebuild Search campaign hierarchies, and optimize Liquid theme technical SEO elements.</p>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="timeline-item">
+              <div class="timeline-dot">3</div>
+              <h4 class="fw-bold text-cream">Aggressive Scaling & Conversion Optimization</h4>
+              <p class="text-light-muted">Once profitability is stabilized, we scale ad budget on top-performing SKU clusters while running CRO tests to boost site conversion rates.</p>
+            </div>
+
+            <!-- Step 4 -->
+            <div class="timeline-item mb-0">
+              <div class="timeline-dot">4</div>
+              <h4 class="fw-bold text-cream">Compounding Organic & Retargeting Growth</h4>
+              <p class="text-light-muted">We layer on high-authority backlink building and cross-channel retargeting to maximize customer lifetime value (LTV).</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Teardown Banner -->
+  <section class="section-padding text-center bg-cream-alt">
+    <div class="container">
+      <h2 class="display-6 fw-bold mb-3">Ready to Scale Your Shopify Store Profitably?</h2>
+      <p class="text-muted mb-4 max-w-600 mx-auto">Get a personalized Loom video teardown of your Google Ads and Shopify SEO opportunity from our senior team.</p>
+      <a href="{% url 'public:contact' %}" class="btn btn-copper btn-lg"><i class="fas fa-paper-plane me-1"></i> Claim Your Free Store Audit</a>
+    </div>
+  </section>
+{% endblock %}

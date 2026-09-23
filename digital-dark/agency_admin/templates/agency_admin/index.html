@@ -1,0 +1,178 @@
+{% extends 'admin_base.html' %}
+{% load static %}
+
+{% block title %}Admin Dashboard - Digital Darts Command Center{% endblock %}
+
+{% block content %}
+  <!-- KPI Summary Cards Row -->
+  <div class="row g-4 mb-4">
+    <div class="col-md-6 col-xl-3">
+      <div class="admin-stat-card">
+        <div class="d-flex justify-content-between align-items-center mb-2">
+          <span class="small text-muted fw-bold">Audit Leads (30d)</span>
+          <div class="admin-stat-icon-badge" style="background: rgba(148, 109, 109, 0.2); color: var(--admin-rose-dark);"><i class="fas fa-inbox"></i></div>
+        </div>
+        <div class="admin-stat-number">42 Requests</div>
+        <div class="small text-success mt-2 fw-semibold"><i class="fas fa-arrow-up me-1"></i> +18% vs last month</div>
+      </div>
+    </div>
+
+    <div class="col-md-6 col-xl-3">
+      <div class="admin-stat-card">
+        <div class="d-flex justify-content-between align-items-center mb-2">
+          <span class="small text-muted fw-bold">Managed Ad Pipeline</span>
+          <div class="admin-stat-icon-badge" style="background: rgba(176, 205, 230, 0.4); color: var(--admin-blue-dark);"><i class="fas fa-dollar-sign"></i></div>
+        </div>
+        <div class="admin-stat-number">$185.4k</div>
+        <div class="small text-success mt-2 fw-semibold"><i class="fas fa-arrow-up me-1"></i> +24% pipeline growth</div>
+      </div>
+    </div>
+
+    <div class="col-md-6 col-xl-3">
+      <div class="admin-stat-card">
+        <div class="d-flex justify-content-between align-items-center mb-2">
+          <span class="small text-muted fw-bold">Playbook Downloads</span>
+          <div class="admin-stat-icon-badge" style="background: rgba(162, 144, 183, 0.3); color: var(--admin-lavender-dark);"><i class="fas fa-book-open"></i></div>
+        </div>
+        <div class="admin-stat-number">328 PDF</div>
+        <div class="small text-success mt-2 fw-semibold"><i class="fas fa-arrow-up me-1"></i> +12% organic leads</div>
+      </div>
+    </div>
+
+    <div class="col-md-6 col-xl-3">
+      <div class="admin-stat-card">
+        <div class="d-flex justify-content-between align-items-center mb-2">
+          <span class="small text-muted fw-bold">Audit Conversion Rate</span>
+          <div class="admin-stat-icon-badge" style="background: rgba(148, 109, 109, 0.2); color: var(--admin-rose);"><i class="fas fa-chart-line"></i></div>
+        </div>
+        <div class="admin-stat-number">38.5%</div>
+        <div class="small text-success mt-2 fw-semibold"><i class="fas fa-check-circle me-1"></i> Top 5% Agency Benchmark</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Service Pipeline & Service Revenue Distribution Grid -->
+  <div class="row g-4 mb-4">
+    
+    <!-- Left: Service Distribution Breakdown -->
+    <div class="col-lg-7">
+      <div class="admin-card h-100">
+        <div class="d-flex align-items-center justify-content-between mb-4">
+          <h6 class="fw-bold mb-0 text-dark"><i class="fas fa-layer-group me-2" style="color: var(--admin-rose);"></i> Service Revenue Pipeline Distribution</h6>
+          <span class="badge bg-light text-dark border">Q3 2026</span>
+        </div>
+
+        <div class="mb-4">
+          <div class="d-flex justify-content-between small fw-bold mb-1">
+            <span>Google Ads & Performance Max (45%)</span>
+            <span class="text-rose">$83,430 / mo</span>
+          </div>
+          <div class="progress progress-admin mb-3">
+            <div class="progress-bar progress-bar-rose" role="progressbar" style="width: 45%;"></div>
+          </div>
+
+          <div class="d-flex justify-content-between small fw-bold mb-1">
+            <span>Shopify Technical SEO & Siloing (35%)</span>
+            <span style="color: var(--admin-blue-dark);">$64,890 / mo</span>
+          </div>
+          <div class="progress progress-admin mb-3">
+            <div class="progress-bar progress-bar-blue" role="progressbar" style="width: 35%;"></div>
+          </div>
+
+          <div class="d-flex justify-content-between small fw-bold mb-1">
+            <span>Meta Ads & Conversion Rate (CRO) (20%)</span>
+            <span style="color: var(--admin-lavender-dark);">$37,080 / mo</span>
+          </div>
+          <div class="progress progress-admin mb-0">
+            <div class="progress-bar progress-bar-lavender" role="progressbar" style="width: 20%;"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right: Agency Quick Action Desk -->
+    <div class="col-lg-5">
+      <div class="admin-card h-100 d-flex flex-column justify-content-between" style="background: linear-gradient(135deg, #FFFFFF, #FDF4D2);">
+        <div>
+          <h6 class="fw-bold mb-3 text-dark"><i class="fas fa-bolt me-2 text-warning"></i> Quick Action Desk</h6>
+          <p class="small text-muted mb-4">Perform key agency administration tasks in one click.</p>
+          
+          <div class="d-flex flex-column gap-2">
+            <a href="{% url 'agency_admin:leads' %}" class="btn btn-sm text-start py-2 px-3 fw-bold d-flex align-items-center justify-content-between" style="background-color: var(--admin-rose); color: #FFF;">
+              <span><i class="fas fa-inbox me-2"></i> Review Unassigned Leads</span>
+              <span class="badge bg-light text-dark">4 New</span>
+            </a>
+            <a href="{% url 'public:index' %}" target="_blank" class="btn btn-sm text-start py-2 px-3 fw-bold d-flex align-items-center justify-content-between" style="background-color: var(--admin-blue); color: var(--admin-blue-dark);">
+              <span><i class="fas fa-eye me-2"></i> Inspect Public Store Front</span>
+              <i class="fas fa-external-link-alt"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="p-3 bg-white rounded border border-secondary border-opacity-25 mt-4">
+          <div class="small fw-bold text-dark"><i class="fas fa-shield-alt text-success me-1"></i> System Operational Status</div>
+          <div class="small text-muted mt-1">All audit intake forms and ROI estimator webhooks are functioning at 100% uptime.</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Recent Audit Requests Table Widget -->
+  <div class="admin-card p-0 overflow-hidden">
+    <div class="p-4 bg-white border-bottom d-flex align-items-center justify-content-between">
+      <h6 class="fw-bold mb-0 text-dark"><i class="fas fa-history me-2 text-rose"></i> Recent Audit Inquiries</h6>
+      <a href="{% url 'agency_admin:leads' %}" class="btn btn-sm btn-outline-dark fw-bold">View All Leads <i class="fas fa-arrow-right ms-1"></i></a>
+    </div>
+
+    <div class="table-responsive">
+      <table class="admin-table mb-0">
+        <thead>
+          <tr>
+            <th>Store / Company</th>
+            <th>Contact</th>
+            <th>Revenue Range</th>
+            <th>Monthly Ad Spend</th>
+            <th>Status</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <strong class="d-block text-dark">Apex Athletics</strong>
+              <span class="small text-muted">apexgear.com.au</span>
+            </td>
+            <td>Alex Morgan (Founder)</td>
+            <td>$50,000 - $200,000 / mo</td>
+            <td>$12,000 / mo</td>
+            <td><span class="badge-status new"><i class="fas fa-circle" style="font-size: 0.5rem;"></i> New Request</span></td>
+            <td><a href="{% url 'agency_admin:leads' %}" class="btn btn-sm btn-dark py-1 px-3">Inspect Lead</a></td>
+          </tr>
+          <tr>
+            <td>
+              <strong class="d-block text-dark">Craftsman Leather Goods</strong>
+              <span class="small text-muted">craftsmanleather.com</span>
+            </td>
+            <td>Rachel Lawson (Director)</td>
+            <td>$200,000+ / mo</td>
+            <td>$25,000 / mo</td>
+            <td><span class="badge-status audit_sent"><i class="fas fa-paper-plane" style="font-size: 0.6rem;"></i> Audit Sent</span></td>
+            <td><a href="{% url 'agency_admin:leads' %}" class="btn btn-sm btn-dark py-1 px-3">Inspect Lead</a></td>
+          </tr>
+          <tr>
+            <td>
+              <strong class="d-block text-dark">Organics Direct Skincare</strong>
+              <span class="small text-muted">organicsdirect.co</span>
+            </td>
+            <td>Melissa Knight (CMO)</td>
+            <td>$50,000 - $200,000 / mo</td>
+            <td>$15,000 / mo</td>
+            <td><span class="badge-status closed_won"><i class="fas fa-check" style="font-size: 0.6rem;"></i> Closed Won</span></td>
+            <td><a href="{% url 'agency_admin:leads' %}" class="btn btn-sm btn-dark py-1 px-3">Inspect Lead</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+{% endblock %}

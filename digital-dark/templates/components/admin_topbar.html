@@ -1,0 +1,51 @@
+{% load static %}
+<!-- Top Header Bar -->
+<header class="admin-header">
+  <div class="d-flex align-items-center gap-3">
+    <h5 class="fw-bold mb-0 text-dark">
+      {% if '/control/' in request.path %}
+        <i class="fas fa-crown text-warning me-2"></i> Custom Admin Control Center
+      {% else %}
+        <i class="fas fa-user-shield text-info me-2"></i> Staff Member Portal
+      {% endif %}
+    </h5>
+  </div>
+
+  <div class="d-flex align-items-center gap-3">
+    <a href="{% url 'public:index' %}" target="_blank" class="btn btn-sm btn-outline-secondary" title="View Public Website">
+      <i class="fas fa-external-link-alt me-1"></i> Public Site
+    </a>
+
+    <!-- User Profile Dropdown -->
+    <div class="dropdown">
+      <div class="admin-user-badge profile-avatar-clickable" data-bs-toggle="dropdown" aria-expanded="false">
+        <div class="admin-avatar">
+          {% if request.user.first_name %}{{ request.user.first_name|slice:":1" }}{% else %}{{ request.user.username|slice:":1"|upper }}{% endif %}
+        </div>
+        <div class="d-none d-md-block">
+          <div class="fw-bold small">{{ request.user.get_full_name|default:request.user.username }}</div>
+          <div class="small text-muted" style="font-size: 0.75rem;">
+            {% if request.user.is_superuser %}Superuser Admin{% else %}Staff Member{% endif %}
+            <i class="fas fa-chevron-down ms-1"></i>
+          </div>
+        </div>
+      </div>
+      <ul class="dropdown-menu dropdown-menu-end admin-dropdown-menu shadow">
+        <li class="px-3 py-2 border-bottom">
+          <strong class="d-block text-dark">{{ request.user.username }}</strong>
+          <span class="small text-muted">{{ request.user.email|default:"No email set" }}</span>
+        </li>
+        {% if request.user.is_superuser %}
+          <li><a class="dropdown-item py-2" href="{% url 'agency_admin:admin_dashboard' %}"><i class="fas fa-crown me-2 text-warning"></i> Admin Dashboard</a></li>
+        {% endif %}
+        <li><a class="dropdown-item py-2" href="{% url 'agency_admin:staff_dashboard' %}"><i class="fas fa-user-shield me-2 text-info"></i> Staff Dashboard</a></li>
+        <li><hr class="dropdown-divider"></li>
+        {% if '/control/' in request.path %}
+          <li><a class="dropdown-item py-2 text-danger fw-bold" href="{% url 'agency_admin:admin_logout' %}"><i class="fas fa-sign-out-alt me-2"></i> Log Out Admin</a></li>
+        {% else %}
+          <li><a class="dropdown-item py-2 text-warning fw-bold" href="{% url 'agency_admin:staff_logout' %}"><i class="fas fa-sign-out-alt me-2"></i> Log Out Staff</a></li>
+        {% endif %}
+      </ul>
+    </div>
+  </div>
+</header>

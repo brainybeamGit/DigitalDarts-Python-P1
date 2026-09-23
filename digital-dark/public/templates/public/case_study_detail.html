@@ -1,0 +1,146 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Case Study: ActiveGear Australia +410% Growth - Digital Darts{% endblock %}
+
+{% block content %}
+  <!-- Hero Breakdown Section -->
+  <section class="section-padding bg-cream-alt pb-4">
+    <div class="container">
+      <div class="d-flex align-items-center gap-2 mb-3">
+        <a href="{% url 'public:case_studies' %}" class="text-espresso small fw-bold"><i class="fas fa-arrow-left me-1"></i> Back to Case Studies</a>
+        <span class="text-muted">/</span>
+        <span class="badge badge-copper">ActiveGear Australia</span>
+      </div>
+
+      <h1 class="display-4 fw-bold mb-3 text-espresso">How ActiveGear Scaled Search Revenue by +410% & Net Profit by +185% in 6 Months</h1>
+      <p class="text-muted mb-4 fs-5 max-w-600">A complete breakdown of the Shopify SEO restructure and Google Performance Max SKU margin clustering strategy used to unlock 7-figure revenue.</p>
+
+      <!-- Key Metrics Row -->
+      <div class="row g-3 my-4">
+        <div class="col-6 col-md-3">
+          <div class="card p-3 border-0 shadow-sm text-center bg-white" style="border-radius: var(--radius-sm);">
+            <div class="stat-number text-copper">+410%</div>
+            <div class="small fw-bold text-espresso mt-1">Search Revenue Growth</div>
+          </div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="card p-3 border-0 shadow-sm text-center bg-white" style="border-radius: var(--radius-sm);">
+            <div class="stat-number text-success">5.4x</div>
+            <div class="small fw-bold text-espresso mt-1">Google Ads ROAS</div>
+          </div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="card p-3 border-0 shadow-sm text-center bg-white" style="border-radius: var(--radius-sm);">
+            <div class="stat-number text-copper">+185%</div>
+            <div class="small fw-bold text-espresso mt-1">Net Margin Lift</div>
+          </div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="card p-3 border-0 shadow-sm text-center bg-white" style="border-radius: var(--radius-sm);">
+            <div class="stat-number text-success">38</div>
+            <div class="small fw-bold text-espresso mt-1">Rank #1 Keywords</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Visual Hero Banner Image -->
+  <section class="pb-5 bg-cream-alt">
+    <div class="container">
+      <div class="img-card-luxury">
+        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80" alt="ActiveGear Growth Breakdown Dashboard">
+      </div>
+    </div>
+  </section>
+
+  <!-- Deep Breakdown Content -->
+  <section class="section-padding">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-9">
+
+          <!-- Executive Summary -->
+          <div class="p-4 p-md-5 bg-espresso text-cream rounded-lg mb-5 shadow-sm" style="border-radius: var(--radius-md);">
+            <h4 class="fw-bold text-cream mb-3"><i class="fas fa-lightbulb text-sage me-2"></i> Executive Summary</h4>
+            <p class="text-cream mb-0" style="font-size: 1.05rem; line-height: 1.7;">ActiveGear Australia was spending $12,000/month on Google Ads with an agency reporting a "3.2x ROAS", but their net profit margin was stagnating due to broad non-converting search terms and Liquid theme canonical issues split-ranking their collection pages. Digital Darts audited the account, restructured Performance Max by SKU profit margins, and executed a technical Liquid SEO overhaul.</p>
+          </div>
+
+          <!-- Section 1: The Challenge -->
+          <h2 class="fw-bold mb-3 text-espresso"><i class="fas fa-exclamation-triangle text-copper me-2"></i> The Challenge</h2>
+          <p class="text-muted mb-4 fs-5">When ActiveGear reached out to Digital Darts, their e-commerce store faced three major bottlenecks:</p>
+
+          <ul class="list-unstyled d-flex flex-column gap-3 mb-5">
+            <li class="p-4 bg-white rounded border shadow-sm d-flex gap-3 align-items-start">
+              <div class="dart-icon flex-shrink-0 mt-1" style="width: 36px; height: 36px; background: rgba(157,102,56,0.15); color: var(--copper); border-radius: 50%; display: flex; align-items: center; justify-content: center;"><i class="fas fa-times"></i></div>
+              <div class="text-espresso">
+                <strong class="d-block fs-6 mb-1">1. Vanity ROAS Metrics:</strong>
+                Ad campaigns targeted broad non-converting search queries like "men's gear" which reported clicks but converted low-margin items.
+              </div>
+            </li>
+            <li class="p-4 bg-white rounded border shadow-sm d-flex gap-3 align-items-start">
+              <div class="dart-icon flex-shrink-0 mt-1" style="width: 36px; height: 36px; background: rgba(157,102,56,0.15); color: var(--copper); border-radius: 50%; display: flex; align-items: center; justify-content: center;"><i class="fas fa-times"></i></div>
+              <div class="text-espresso">
+                <strong class="d-block fs-6 mb-1">2. Liquid Canonical Duplication:</strong>
+                Shopify linked products via `/collections/product/`, diluting page authority across Google's search index.
+              </div>
+            </li>
+            <li class="p-4 bg-white rounded border shadow-sm d-flex gap-3 align-items-start">
+              <div class="dart-icon flex-shrink-0 mt-1" style="width: 36px; height: 36px; background: rgba(157,102,56,0.15); color: var(--copper); border-radius: 50%; display: flex; align-items: center; justify-content: center;"><i class="fas fa-times"></i></div>
+              <div class="text-espresso">
+                <strong class="d-block fs-6 mb-1">3. High Cart Abandonment:</strong>
+                Checkout page lacked trust badges and smooth slide-out cart upsells.
+              </div>
+            </li>
+          </ul>
+
+          <!-- Section 2: Strategy & Execution -->
+          <h2 class="fw-bold mb-3 text-espresso"><i class="fas fa-cogs text-copper me-2"></i> The Strategy & Execution</h2>
+          <p class="text-muted mb-4 fs-5">Digital Darts deployed our 4-Step Profit Framework over a 6-month period:</p>
+
+          <!-- Step 1 -->
+          <div class="card p-4 border-0 shadow-sm mb-4 bg-white" style="border-radius: var(--radius-md);">
+            <h5 class="fw-bold text-copper mb-2"><i class="fas fa-check-circle me-2"></i> Step 1: Profit Margin & Break-Even ROAS Calculation</h5>
+            <p class="text-espresso mb-0" style="font-size: 1rem; line-height: 1.6;">We audited product gross margins, shipping costs, and Shopify transaction fees to set exact net profit targets for every campaign.</p>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="card p-4 border-0 shadow-sm mb-4 bg-white" style="border-radius: var(--radius-md);">
+            <h5 class="fw-bold text-copper mb-2"><i class="fas fa-check-circle me-2"></i> Step 2: Performance Max SKU Margin Clustering</h5>
+            <p class="text-espresso mb-0" style="font-size: 1rem; line-height: 1.6;">We separated top-tier margin products into high-priority PMax asset groups while adding 300+ negative brand keywords to force clean attribution.</p>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="card p-4 border-0 shadow-sm mb-4 bg-white" style="border-radius: var(--radius-md);">
+            <h5 class="fw-bold text-copper mb-2"><i class="fas fa-check-circle me-2"></i> Step 3: Technical Liquid SEO & Collection Siloing</h5>
+            <p class="text-espresso mb-0" style="font-size: 1rem; line-height: 1.6;">We edited `main-product.liquid` to force canonical URLs to root `/products/` and built editorial backlinks targeting active search phrases.</p>
+          </div>
+
+          <!-- Verified Client Quote Box -->
+          <div class="testimonial-card my-5">
+            <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+            <p class="fs-5 text-espresso fw-semibold mb-4" style="line-height: 1.6;">"Digital Darts doubled our Google Ads net profit in less than 90 days and unlocked +410% in search revenue. They are true Shopify profit specialists."</p>
+            <div class="d-flex align-items-center gap-3">
+              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80" alt="James Davies" class="testimonial-avatar-img">
+              <div>
+                <h6 class="fw-bold text-espresso mb-0">James Davies</h6>
+                <div class="small text-muted">Founder, ActiveGear Australia</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Banner -->
+  <section class="section-padding bg-espresso text-cream text-center">
+    <div class="container">
+      <h2 class="display-6 fw-bold text-cream mb-3">Want Similar Results for Your Shopify Store?</h2>
+      <p class="text-cream mb-4 max-w-600 mx-auto" style="opacity: 0.9;">Get a free, confidential Loom video review of your Google Ads and Shopify SEO opportunity.</p>
+      <a href="{% url 'public:contact' %}" class="btn btn-copper btn-lg"><i class="fas fa-paper-plane me-1"></i> Request Free Store Audit</a>
+    </div>
+  </section>
+{% endblock %}

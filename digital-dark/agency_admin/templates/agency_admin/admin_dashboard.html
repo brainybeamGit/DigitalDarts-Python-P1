@@ -1,0 +1,118 @@
+{% extends 'admin_base.html' %}
+{% block title %}Superuser Admin Executive Overview - Digital Dark{% endblock %}
+
+{% block content %}
+<div class="row g-4 mb-4">
+  <div class="col-md-3">
+    <div class="admin-card p-4 border-start border-4 border-primary">
+      <h6 class="text-muted mb-1 text-uppercase fw-bold" style="font-size: 0.75rem;">Total Leads Recorded</h6>
+      <h2 class="fw-extrabold text-dark mb-0">{{ total_leads }}</h2>
+      <span class="small text-muted">All sources</span>
+    </div>
+  </div>
+
+  <div class="col-md-3">
+    <div class="admin-card p-4 border-start border-4 border-warning">
+      <h6 class="text-muted mb-1 text-uppercase fw-bold" style="font-size: 0.75rem;">New Leads Needing Action</h6>
+      <h2 class="fw-extrabold text-dark mb-0">{{ new_leads }}</h2>
+      <span class="small text-muted">Unprocessed</span>
+    </div>
+  </div>
+
+  <div class="col-md-3">
+    <div class="admin-card p-4 border-start border-4 border-danger">
+      <h6 class="text-muted mb-1 text-uppercase fw-bold" style="font-size: 0.75rem;">Drafts Pending Review</h6>
+      <h2 class="fw-extrabold text-dark mb-0">{{ drafts_for_review }}</h2>
+      <span class="small text-muted">Awaiting publication</span>
+    </div>
+  </div>
+
+  <div class="col-md-3">
+    <div class="admin-card p-4 border-start border-4 border-success">
+      <h6 class="text-muted mb-1 text-uppercase fw-bold" style="font-size: 0.75rem;">Published Blog Posts</h6>
+      <h2 class="fw-extrabold text-dark mb-0">{{ total_published_posts }}</h2>
+      <span class="small text-muted">Live on site</span>
+    </div>
+  </div>
+</div>
+
+<div class="row g-4 mb-4">
+  <!-- Draft Posts Awaiting Superuser Approval -->
+  <div class="col-lg-6">
+    <div class="admin-card p-4 h-100">
+      <div class="d-flex align-items-center justify-content-between mb-3 border-bottom pb-2">
+        <h5 class="fw-bold mb-0"><i class="fas fa-clock text-warning me-2"></i> Staff Drafts Awaiting Review</h5>
+        <a href="{% url 'agency_admin:admin_posts_list' %}" class="btn btn-sm btn-outline-dark">Manage Posts</a>
+      </div>
+      <div class="table-responsive">
+        <table class="table table-hover align-middle">
+          <thead>
+            <tr>
+              <th>Title</th>
+              <th>Author</th>
+              <th class="text-end">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for post in recent_drafts %}
+              <tr>
+                <td>
+                  <strong class="d-block text-dark">{{ post.title }}</strong>
+                  <span class="small text-muted">{{ post.category.name|default:"General" }}</span>
+                </td>
+                <td class="small fw-semibold text-dark">{{ post.author.username }}</td>
+                <td class="text-end">
+                  <a href="{% url 'agency_admin:admin_post_toggle_publish' post.id %}" class="btn btn-sm btn-success fw-bold">
+                    <i class="fas fa-check me-1"></i> Publish
+                  </a>
+                </td>
+              </tr>
+            {% empty %}
+              <tr><td colspan="3" class="text-muted text-center py-3">No drafts currently awaiting review.</td></tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- Recent Leads & CSV Export Quick Action -->
+  <div class="col-lg-6">
+    <div class="admin-card p-4 h-100">
+      <div class="d-flex align-items-center justify-content-between mb-3 border-bottom pb-2">
+        <h5 class="fw-bold mb-0"><i class="fas fa-inbox text-primary me-2"></i> Recent Inbound Leads</h5>
+        <a href="{% url 'agency_admin:admin_leads_export_csv' %}" class="btn btn-sm btn-outline-success fw-bold">
+          <i class="fas fa-file-csv me-1"></i> Export Leads CSV
+        </a>
+      </div>
+      <div class="table-responsive">
+        <table class="table table-hover align-middle">
+          <thead>
+            <tr>
+              <th>Name / Email</th>
+              <th>Source</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for lead in recent_leads %}
+              <tr>
+                <td>
+                  <strong class="d-block text-dark">{{ lead.name|default:"Lead" }}</strong>
+                  <span class="small text-muted">{{ lead.email }}</span>
+                </td>
+                <td><span class="badge bg-secondary">{{ lead.get_source_display }}</span></td>
+                <td>
+                  {% if lead.status == 'new' %}<span class="badge bg-danger">New</span>{% else %}<span class="badge bg-dark">{{ lead.get_status_display }}</span>{% endif %}
+                </td>
+              </tr>
+            {% empty %}
+              <tr><td colspan="3" class="text-muted text-center py-3">No leads recorded.</td></tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

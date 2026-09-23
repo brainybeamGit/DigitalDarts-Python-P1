@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Free E-Commerce Guides & Playbooks - Digital Dark{% endblock %}
+
+{% block content %}
+<section class="section-padding bg-cream">
+  <div class="container my-5">
+    <div class="text-center max-w-600 mb-5">
+      <span class="badge badge-copper mb-2">Free Resources</span>
+      <h1 class="display-5 fw-extrabold text-espresso">High-Growth Playbooks & PDF Guides</h1>
+      <p class="text-muted">Download our battle-tested CRO frameworks and Google Ads scaling checklists.</p>
+    </div>
+
+    {% if messages %}
+      {% for message in messages %}
+        <div class="alert alert-success max-w-600 mx-auto text-center py-3 mb-4 rounded-3">{{ message }}</div>
+      {% endfor %}
+    {% endif %}
+
+    <div class="row g-4">
+      {% for g in guides %}
+        <div class="col-lg-6">
+          <div class="card p-4 border-0 shadow-sm h-100 d-flex flex-column justify-content-between" style="background-color: #FFFDF8; border-radius: 20px;">
+            <div>
+              <div class="d-flex align-items-center gap-2 mb-3">
+                <span class="badge bg-danger p-2"><i class="fas fa-file-pdf"></i> PDF Playbook</span>
+              </div>
+              <h3 class="fw-bold text-espresso mb-2">{{ g.title }}</h3>
+              <p class="text-muted mb-4">{{ g.description }}</p>
+            </div>
+
+            <form method="POST" class="border-top pt-3">
+              {% csrf_token %}
+              <input type="hidden" name="guide_id" value="{{ g.id }}">
+              <div class="row g-2 mb-2">
+                <div class="col-md-6">
+                  <input type="text" name="name" class="form-control" placeholder="Your Full Name" required>
+                </div>
+                <div class="col-md-6">
+                  <input type="email" name="email" class="form-control" placeholder="Work Email" required>
+                </div>
+              </div>
+              <button type="submit" class="btn btn-copper w-100 fw-bold"><i class="fas fa-download me-1"></i> Download PDF Guide Free</button>
+            </form>
+          </div>
+        </div>
+      {% empty %}
+        <div class="col-12 text-center py-5 text-muted">No guides currently available.</div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}

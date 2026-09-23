@@ -1,0 +1,46 @@
+{% extends 'admin_base.html' %}
+{% block title %}Site Settings - Custom Admin{% endblock %}
+
+{% block content %}
+<div class="admin-card p-4 max-w-800">
+  <div class="d-flex align-items-center justify-content-between border-bottom pb-3 mb-4">
+    <h4 class="fw-bold mb-0"><i class="fas fa-sliders-h me-2 text-warning"></i> Global Site Settings</h4>
+  </div>
+
+  {% if messages %}
+    {% for message in messages %}
+      <div class="alert alert-success py-2 px-3 small rounded-3 mb-3">{{ message }}</div>
+    {% endfor %}
+  {% endif %}
+
+  <form method="POST">
+    {% csrf_token %}
+    <div class="mb-3">
+      <label class="form-label fw-bold">Agency Platform Title</label>
+      <input type="text" name="site_name" class="form-control" value="{{ settings_dict.site_name|default:'Digital Dark' }}" required>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label fw-bold">Support & Inbound Contact Email</label>
+      <input type="email" name="contact_email" class="form-control" value="{{ settings_dict.contact_email|default:'hello@digitaldark.agency' }}" required>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label fw-bold">Header Navigation Menu Links (JSON / CSV)</label>
+      <input type="text" name="nav_menu" class="form-control font-mono" value="{{ settings_dict.nav_menu|default:'Home, Services, Case Studies, Blog, Guides, Free Course, Contact' }}">
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label fw-bold">SEO Default Meta Description</label>
+      <textarea name="seo_description" class="form-control" rows="3">{{ settings_dict.seo_description|default:'Digital Dark is a high-performance growth agency for luxury e-commerce brands.' }}</textarea>
+    </div>
+
+    <div class="mb-4">
+      <label class="form-label fw-bold">Social Media Profile Links</label>
+      <input type="text" name="social_links" class="form-control" value="{{ settings_dict.social_links|default:'https://twitter.com/digitaldark, https://linkedin.com/company/digitaldark' }}">
+    </div>
+
+    <button type="submit" class="btn btn-dark fw-bold px-4">Save Site Settings</button>
+  </form>
+</div>
+{% endblock %}

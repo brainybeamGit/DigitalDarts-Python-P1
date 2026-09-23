@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Free E-Commerce Growth Course - Digital Dark{% endblock %}
+
+{% block content %}
+<section class="section-padding bg-cream">
+  <div class="container my-5">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-6">
+        <span class="badge badge-sage mb-3"><i class="fas fa-graduation-cap me-1"></i> 7-Day Email Course</span>
+        <h1 class="display-5 fw-extrabold text-espresso mb-3">7 Days to 2x Your Shopify Store Profits</h1>
+        <p class="lead text-muted mb-4">Learn the exact full-funnel media buying and CRO strategies we use to scale DTC stores past $10M ARR.</p>
+
+        <div class="d-flex flex-column gap-3 mb-4">
+          <div class="d-flex align-items-start gap-3">
+            <div class="stat-icon bg-sage-light text-espresso rounded-circle p-2 fs-5"><i class="fas fa-check"></i></div>
+            <div>
+              <strong class="d-block text-espresso">Module 1: Calculating True Break-Even ROAS</strong>
+              <span class="small text-muted">Stop relying on ad platform ROAS metrics and master margin math.</span>
+            </div>
+          </div>
+          <div class="d-flex align-items-start gap-3">
+            <div class="stat-icon bg-sage-light text-espresso rounded-circle p-2 fs-5"><i class="fas fa-check"></i></div>
+            <div>
+              <strong class="d-block text-espresso">Module 2: Google Search Intent Harvesting</strong>
+              <span class="small text-muted">High-converting search campaigns that capture active buyers.</span>
+            </div>
+          </div>
+          <div class="d-flex align-items-start gap-3">
+            <div class="stat-icon bg-sage-light text-espresso rounded-circle p-2 fs-5"><i class="fas fa-check"></i></div>
+            <div>
+              <strong class="d-block text-espresso">Module 3: High-Ticket Checkout CRO</strong>
+              <span class="small text-muted">Eliminate friction and boost conversion rates by 30%+.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-6">
+        <div class="card p-5 border-0 shadow-lg" style="background-color: #3A1809; color: #F7F1DE; border-radius: 24px;">
+          <h3 class="fw-bold mb-2 text-white">Enroll in the Free Course</h3>
+          <p class="small text-light-muted mb-4">Instant access to Module 1 delivered straight to your inbox.</p>
+
+          {% if messages %}
+            {% for message in messages %}
+              <div class="alert alert-success py-2 px-3 small rounded-3 mb-3 text-dark">{{ message }}</div>
+            {% endfor %}
+          {% endif %}
+
+          <form method="POST">
+            {% csrf_token %}
+            <div class="mb-3">
+              <label class="form-label small fw-bold text-uppercase text-light-muted">Your Name</label>
+              <input type="text" name="name" class="form-control form-control-lg bg-dark text-light border-secondary" placeholder="Alex Morgan" required>
+            </div>
+            <div class="mb-4">
+              <label class="form-label small fw-bold text-uppercase text-light-muted">Email Address</label>
+              <input type="email" name="email" class="form-control form-control-lg bg-dark text-light border-secondary" placeholder="alex@brand.com" required>
+            </div>
+            <button type="submit" class="btn btn-copper btn-lg w-100 fw-bold">Enroll Free Now <i class="fas fa-arrow-right ms-2"></i></button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

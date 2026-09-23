@@ -1,0 +1,354 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Direct Agency Contact & Store Audit - Digital Darts{% endblock %}
+
+{% block content %}
+  <!-- Page Header -->
+  <section class="section-padding bg-cream-alt text-center border-bottom">
+    <div class="container">
+      <div class="d-inline-flex align-items-center gap-2 bg-white px-3 py-2 rounded-pill shadow-sm border mb-3">
+        <span class="badge bg-success text-white" style="font-size: 0.75rem;"><i class="fas fa-signal me-1"></i> Live</span>
+        <span class="small fw-bold text-espresso">Agency Status: Accepting 2 New Shopify Brands This Month</span>
+      </div>
+      <h1 class="display-4 fw-bold mb-3 text-espresso">Direct Agency Contact & Store Audit</h1>
+      <p class="text-muted max-w-600 mx-auto" style="font-size: 1.1rem; line-height: 1.8;">
+        Connect directly with senior e-commerce strategists. No middle managers. No pitch decks. Just confidential, profit-first growth tactics for your Shopify store.
+      </p>
+    </div>
+  </section>
+
+  <!-- Main Section: Form + Direct Contact Card -->
+  <section class="section-padding">
+    <div class="container">
+      <div class="row gy-5">
+        
+        <!-- Left Column: Audit Form -->
+        <div class="col-lg-7">
+          <div class="card p-4 p-md-5 border-0 shadow-md bg-white" style="border-radius: var(--radius-lg); border: 1px solid rgba(78, 34, 15, 0.1);">
+            <div class="d-flex align-items-center justify-content-between mb-4">
+              <div>
+                <h3 class="fw-bold mb-1 text-espresso"><i class="fas fa-clipboard-check me-2 text-copper"></i> Request Free Audit</h3>
+                <p class="small text-muted mb-0">Receive a custom 15-minute Loom video audit of your Google Ads & SEO.</p>
+              </div>
+              <span class="badge badge-copper">100% Free</span>
+            </div>
+
+            <!-- Real-Time Validated Audit Form -->
+            <form id="auditForm" novalidate>
+              <div class="row g-3 mb-3">
+                <div class="col-md-6">
+                  <label class="form-label fw-semibold">Your Full Name <span class="text-danger">*</span></label>
+                  <input type="text" class="form-control form-control-custom" placeholder="e.g. Alex Morgan" required>
+                  <div class="invalid-feedback">Please enter your full name.</div>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label fw-semibold">Work Email <span class="text-danger">*</span></label>
+                  <input type="email" class="form-control form-control-custom" placeholder="alex@yourstore.com" required>
+                  <div class="invalid-feedback">Please enter a valid work email address.</div>
+                </div>
+              </div>
+
+              <div class="mb-3">
+                <label class="form-label fw-semibold">Shopify Store URL <span class="text-danger">*</span></label>
+                <input type="url" class="form-control form-control-custom" placeholder="https://yourstore.com" required>
+                <div class="invalid-feedback">Please enter a valid store URL.</div>
+              </div>
+
+              <div class="row g-3 mb-3">
+                <div class="col-md-6">
+                  <label class="form-label fw-semibold">Monthly Store Revenue <span class="text-danger">*</span></label>
+                  <select class="form-select form-control-custom" required>
+                    <option value="" disabled selected>Select revenue range...</option>
+                    <option value="under20k">Under $20,000 / mo</option>
+                    <option value="20k-50k">$20,000 - $50,000 / mo</option>
+                    <option value="50k-200k">$50,000 - $200,000 / mo</option>
+                    <option value="200k+">$200,000+ / mo</option>
+                  </select>
+                  <div class="invalid-feedback">Please select your monthly revenue range.</div>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label fw-semibold">Monthly Paid Ad Spend <span class="text-danger">*</span></label>
+                  <select class="form-select form-control-custom" required>
+                    <option value="" disabled selected>Select spend range...</option>
+                    <option value="under5k">Under $5,000 / mo</option>
+                    <option value="5k-20k">$5,000 - $20,000 / mo</option>
+                    <option value="20k+">$20,000+ / mo</option>
+                  </select>
+                  <div class="invalid-feedback">Please select your ad spend range.</div>
+                </div>
+              </div>
+
+              <div class="mb-4">
+                <label class="form-label fw-semibold">What is your primary growth goal? <span class="text-danger">*</span></label>
+                <textarea class="form-control form-control-custom" rows="4" placeholder="Tell us about your target ROAS, current Google Ads bottlenecks, or organic search goals..." required></textarea>
+                <div class="invalid-feedback">Please tell us briefly about your growth goals.</div>
+              </div>
+
+              <button type="submit" class="btn btn-copper btn-lg w-100 py-3 shadow-md"><i class="fas fa-paper-plane me-2"></i> Submit Audit Request</button>
+            </form>
+          </div>
+        </div>
+
+        <!-- Right Column: Direct Agency Contact Card & Founder Desk -->
+        <div class="col-lg-5">
+          <div class="p-4 p-md-5 bg-espresso text-cream rounded-lg shadow-md h-100 d-flex flex-column justify-content-between" style="border-radius: var(--radius-lg);">
+            
+            <div>
+              <div class="d-flex align-items-center justify-content-between mb-4 pb-3 border-bottom border-secondary border-opacity-25">
+                <div class="d-flex align-items-center gap-2">
+                  <div class="d-inline-flex align-items-center justify-content-center bg-sage text-espresso rounded-circle shadow-sm" style="width: 32px; height: 32px; font-size: 0.85rem; flex-shrink: 0;">
+                    <i class="fas fa-headset"></i>
+                  </div>
+                  <h4 class="fw-bold text-cream mb-0" style="font-size: 1.25rem;">Direct Agency Access</h4>
+                </div>
+                <span class="badge bg-sage text-espresso fw-bold px-2 py-1" style="font-size: 0.75rem;">Priority Desk</span>
+              </div>
+
+              <!-- Founder Profile Card -->
+              <div class="p-3 bg-white bg-opacity-10 rounded-3 border border-white border-opacity-10 mb-3 d-flex align-items-center gap-3">
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80" alt="Rahul Founder" class="rounded-circle border border-2 border-sage" style="width: 38px; height: 38px; object-fit: cover; flex-shrink: 0;">
+                <div>
+                  <h6 class="fw-bold text-cream mb-0" style="font-size: 0.95rem;">Rahul</h6>
+                  <span class="small text-sage d-block" style="font-size: 0.8rem;">Senior E-Commerce Founder</span>
+                  <span class="small text-light-muted" style="font-size: 0.75rem;"><i class="fas fa-bolt text-warning me-1"></i> Personally reviews every audit</span>
+                </div>
+              </div>
+
+              <!-- Direct Hotline -->
+              <div class="mb-3">
+                <span class="small text-light-muted text-uppercase fw-bold d-block mb-1" style="font-size: 0.7rem; letter-spacing: 0.05em;">Direct Phone Line</span>
+                <a href="tel:+61730008899" class="d-flex align-items-center gap-3 text-cream text-decoration-none p-3 bg-white bg-opacity-10 rounded-3 border border-white border-opacity-15 hover-lift">
+                  <div class="d-inline-flex align-items-center justify-content-center bg-copper text-cream rounded-circle shadow-sm" style="width: 32px; height: 32px; font-size: 0.85rem; flex-shrink: 0;"><i class="fas fa-phone-alt"></i></div>
+                  <div>
+                    <strong class="d-block text-cream" style="font-size: 1.05rem;">+61 7 3000 8899</strong>
+                    <span class="small text-sage" style="font-size: 0.78rem;">Direct Line • 9am - 6pm AEST</span>
+                  </div>
+                </a>
+              </div>
+
+              <!-- WhatsApp Priority Hotline -->
+              <div class="mb-3">
+                <span class="small text-light-muted text-uppercase fw-bold d-block mb-1" style="font-size: 0.7rem; letter-spacing: 0.05em;">Instant WhatsApp Chat</span>
+                <a href="https://wa.me/61400000000" target="_blank" class="d-flex align-items-center gap-3 text-cream text-decoration-none p-3 bg-success bg-opacity-20 rounded-3 border border-success border-opacity-30 hover-lift">
+                  <div class="d-inline-flex align-items-center justify-content-center text-white rounded-circle shadow-sm" style="width: 32px; height: 32px; background: #25D366; font-size: 0.95rem; flex-shrink: 0;"><i class="fab fa-whatsapp"></i></div>
+                  <div>
+                    <strong class="d-block text-white" style="font-size: 0.95rem;">Chat on WhatsApp</strong>
+                    <span class="small text-light-muted" style="font-size: 0.78rem;">Average response: &lt; 15 mins</span>
+                  </div>
+                </a>
+              </div>
+
+              <!-- Direct Email -->
+              <div class="mb-3">
+                <span class="small text-light-muted text-uppercase fw-bold d-block mb-1" style="font-size: 0.7rem; letter-spacing: 0.05em;">Confidential Business Email</span>
+                <a href="mailto:support@digitaldarts.com.au" class="d-flex align-items-center gap-3 text-cream text-decoration-none p-3 bg-white bg-opacity-10 rounded-3 border border-white border-opacity-15 hover-lift">
+                  <div class="d-inline-flex align-items-center justify-content-center bg-sage text-espresso rounded-circle shadow-sm" style="width: 32px; height: 32px; font-size: 0.85rem; flex-shrink: 0;"><i class="fas fa-envelope"></i></div>
+                  <div>
+                    <strong class="d-block text-cream" style="font-size: 0.95rem;">support@digitaldarts.com.au</strong>
+                    <span class="small text-light-muted" style="font-size: 0.78rem;">Direct Email Intake</span>
+                  </div>
+                </a>
+              </div>
+            </div>
+
+            <!-- Guarantee Box -->
+            <div class="p-3 bg-black bg-opacity-30 rounded-3 border border-secondary border-opacity-25 mt-2">
+              <div class="d-flex align-items-center gap-2 mb-1 text-sage fw-bold" style="font-size: 0.85rem;">
+                <div class="d-inline-flex align-items-center justify-content-center bg-sage text-espresso rounded-circle" style="width: 22px; height: 22px; font-size: 0.7rem; flex-shrink: 0;"><i class="fas fa-shield-alt"></i></div>
+                100% Confidentiality & NDA Protection
+              </div>
+              <p class="small text-light-muted mb-0" style="font-size: 0.78rem;">We never share your store data, ad accounts, or financial metrics. Your submission is strictly confidential.</p>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Multi-Channel Direct Contact Grid -->
+  <section class="section-padding bg-cream-alt border-top border-bottom">
+    <div class="container">
+      <div class="text-center mb-5">
+        <span class="badge badge-copper mb-2">Flexible Communication</span>
+        <h2 class="display-6 fw-bold text-espresso">Choose How You Prefer to Connect</h2>
+        <p class="text-muted max-w-600 mx-auto">We adapt to your schedule and preferred communication channels.</p>
+      </div>
+
+      <div class="row g-4">
+        
+        <!-- Option 1: Direct Call -->
+        <div class="col-md-6 col-lg-3">
+          <div class="card p-4 border-0 shadow-sm h-100 bg-white" style="border-radius: var(--radius-md); transition: var(--transition);">
+            <div class="d-flex align-items-center justify-content-center mb-3 rounded-circle bg-copper text-cream mx-auto shadow-sm" style="width: 48px; height: 48px; font-size: 1.15rem;">
+              <i class="fas fa-phone-alt"></i>
+            </div>
+            <h5 class="fw-bold text-espresso text-center mb-2" style="font-size: 1.1rem;">Direct Phone Call</h5>
+            <p class="small text-muted text-center mb-4">Speak directly with senior strategists. Average pickup time under 30 seconds during business hours.</p>
+            <a href="tel:+61730008899" class="btn btn-outline-espresso btn-sm w-100 mt-auto"><i class="fas fa-phone me-1"></i> Call +61 7 3000 8899</a>
+          </div>
+        </div>
+
+        <!-- Option 2: WhatsApp Chat -->
+        <div class="col-md-6 col-lg-3">
+          <div class="card p-4 border-0 shadow-sm h-100 bg-white" style="border-radius: var(--radius-md); transition: var(--transition);">
+            <div class="d-flex align-items-center justify-content-center mb-3 rounded-circle text-white mx-auto shadow-sm" style="width: 48px; height: 48px; font-size: 1.25rem; background: #25D366;">
+              <i class="fab fa-whatsapp"></i>
+            </div>
+            <h5 class="fw-bold text-espresso text-center mb-2" style="font-size: 1.1rem;">WhatsApp Hotline</h5>
+            <p class="small text-muted text-center mb-4">Have a quick question about your Google Ads or SEO? Message us directly for fast feedback.</p>
+            <a href="https://wa.me/61400000000" target="_blank" class="btn btn-sage btn-sm w-100 mt-auto"><i class="fab fa-whatsapp me-1 text-success"></i> Open WhatsApp</a>
+          </div>
+        </div>
+
+        <!-- Option 3: Loom Video Audit -->
+        <div class="col-md-6 col-lg-3">
+          <div class="card p-4 border-0 shadow-sm h-100 bg-white" style="border-radius: var(--radius-md); transition: var(--transition);">
+            <div class="d-flex align-items-center justify-content-center mb-3 rounded-circle bg-espresso text-cream mx-auto shadow-sm" style="width: 48px; height: 48px; font-size: 1.15rem;">
+              <i class="fas fa-video"></i>
+            </div>
+            <h5 class="fw-bold text-espresso text-center mb-2" style="font-size: 1.1rem;">Loom Video Breakdown</h5>
+            <p class="small text-muted text-center mb-4">Don't have time for a live call? Request a 15-min screen recorded video audit sent to your inbox.</p>
+            <a href="#auditForm" class="btn btn-copper btn-sm w-100 mt-auto"><i class="fas fa-play me-1"></i> Request Video Audit</a>
+          </div>
+        </div>
+
+        <!-- Option 4: Enterprise NDA -->
+        <div class="col-md-6 col-lg-3">
+          <div class="card p-4 border-0 shadow-sm h-100 bg-white" style="border-radius: var(--radius-md); transition: var(--transition);">
+            <div class="d-flex align-items-center justify-content-center mb-3 rounded-circle bg-sage text-espresso mx-auto shadow-sm" style="width: 48px; height: 48px; font-size: 1.15rem;">
+              <i class="fas fa-file-contract"></i>
+            </div>
+            <h5 class="fw-bold text-espresso text-center mb-2" style="font-size: 1.1rem;">Enterprise NDA First</h5>
+            <p class="small text-muted text-center mb-4">Scaling past $5M+/year? Request a mutual NDA signature before sharing store or ad access.</p>
+            <a href="mailto:support@digitaldarts.com.au?subject=NDA%20Request" class="btn btn-outline-espresso btn-sm w-100 mt-auto"><i class="fas fa-lock me-1"></i> Request Mutual NDA</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Office Locations Grid -->
+  <section class="section-padding">
+    <div class="container">
+      <div class="text-center mb-5">
+        <span class="badge badge-sage mb-2">Global Reach</span>
+        <h2 class="display-6 fw-bold text-espresso">Agency Office Locations</h2>
+        <p class="text-muted max-w-600 mx-auto">Headquartered in Australia, serving 7 & 8-figure Shopify brands across Australia, North America, and Europe.</p>
+      </div>
+
+      <div class="row g-4">
+        
+        <!-- Location 1: Brisbane -->
+        <div class="col-lg-4">
+          <div class="card p-4 border-0 shadow-sm bg-white h-100" style="border-radius: var(--radius-md); border-top: 4px solid var(--copper);">
+            <div class="d-flex align-items-center justify-content-between mb-3">
+              <span class="fw-bold text-espresso fs-5">🇦🇺 Brisbane HQ</span>
+              <span class="badge bg-cream-alt text-copper border">Headquarters</span>
+            </div>
+            <p class="small text-muted mb-2"><i class="fas fa-map-marker-alt text-copper me-2"></i> Financial District, Eagle Street, Brisbane QLD 4000</p>
+            <p class="small text-muted mb-2"><i class="fas fa-phone text-copper me-2"></i> +61 7 3000 8899</p>
+            <p class="small text-muted mb-0"><i class="fas fa-clock text-copper me-2"></i> Mon - Fri: 8:30am - 6:00pm AEST</p>
+          </div>
+        </div>
+
+        <!-- Location 2: Sydney -->
+        <div class="col-lg-4">
+          <div class="card p-4 border-0 shadow-sm bg-white h-100" style="border-radius: var(--radius-md); border-top: 4px solid var(--sage);">
+            <div class="d-flex align-items-center justify-content-between mb-3">
+              <span class="fw-bold text-espresso fs-5">🇦🇺 Sydney Studio</span>
+              <span class="badge bg-cream-alt text-sage-dark border">Creative Hub</span>
+            </div>
+            <p class="small text-muted mb-2"><i class="fas fa-map-marker-alt text-sage me-2"></i> Barangaroo International Towers, Sydney NSW 2000</p>
+            <p class="small text-muted mb-2"><i class="fas fa-phone text-sage me-2"></i> +61 2 8000 7744</p>
+            <p class="small text-muted mb-0"><i class="fas fa-clock text-sage me-2"></i> Mon - Fri: 9:00am - 5:30pm AEST</p>
+          </div>
+        </div>
+
+        <!-- Location 3: North America -->
+        <div class="col-lg-4">
+          <div class="card p-4 border-0 shadow-sm bg-white h-100" style="border-radius: var(--radius-md); border-top: 4px solid var(--espresso);">
+            <div class="d-flex align-items-center justify-content-between mb-3">
+              <span class="fw-bold text-espresso fs-5">🇺🇸 Austin Hub</span>
+              <span class="badge bg-cream-alt text-espresso border">US Partnerships</span>
+            </div>
+            <p class="small text-muted mb-2"><i class="fas fa-map-marker-alt text-espresso me-2"></i> Downtown Innovation Center, Austin TX 78701</p>
+            <p class="small text-muted mb-2"><i class="fas fa-phone text-espresso me-2"></i> +1 512 800 9988</p>
+            <p class="small text-muted mb-0"><i class="fas fa-clock text-espresso me-2"></i> Mon - Fri: 9:00am - 5:00pm CST</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact FAQs Accordion -->
+  <section class="section-padding bg-cream-alt border-top">
+    <div class="container max-w-600">
+      <div class="text-center mb-5">
+        <span class="badge badge-copper mb-2">Common Questions</span>
+        <h2 class="display-6 fw-bold text-espresso">Frequently Asked Contact Questions</h2>
+      </div>
+
+      <div class="accordion accordion-custom" id="contactFaqAccordion">
+        
+        <div class="accordion-item mb-3 border-0 shadow-sm rounded-lg overflow-hidden">
+          <h2 class="accordion-header">
+            <button class="accordion-button fw-bold text-espresso" type="button" data-bs-toggle="collapse" data-bs-target="#cfaq1">
+              How fast will I receive my custom video audit?
+            </button>
+          </h2>
+          <div id="cfaq1" class="accordion-collapse collapse show" data-bs-parent="#contactFaqAccordion">
+            <div class="accordion-body text-muted">
+              All store audits are personally recorded by our senior strategists within <strong>1 business day (24 hours)</strong>. You'll receive a private Loom video link dissecting your Google Ads ROAS and Shopify SEO opportunities.
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item mb-3 border-0 shadow-sm rounded-lg overflow-hidden">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed fw-bold text-espresso" type="button" data-bs-toggle="collapse" data-bs-target="#cfaq2">
+              Will I speak with an actual strategist or a salesperson?
+            </button>
+          </h2>
+          <div id="cfaq2" class="accordion-collapse collapse" data-bs-parent="#contactFaqAccordion">
+            <div class="accordion-body text-muted">
+              You will speak directly with our senior e-commerce founder or lead media buyer. Digital Darts does not employ junior account managers or aggressive commission sales representatives.
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item mb-3 border-0 shadow-sm rounded-lg overflow-hidden">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed fw-bold text-espresso" type="button" data-bs-toggle="collapse" data-bs-target="#cfaq3">
+              Is there any cost or obligation after requesting an audit?
+            </button>
+          </h2>
+          <div id="cfaq3" class="accordion-collapse collapse" data-bs-parent="#contactFaqAccordion">
+            <div class="accordion-body text-muted">
+              No. The video audit is 100% free with zero obligation. We provide actionable recommendations that you can implement yourself or hire us to execute.
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Luxury Dark CTA Banner -->
+  <section class="section-padding bg-espresso text-cream text-center">
+    <div class="container">
+      <h2 class="display-5 fw-bold text-cream mb-3">Ready to Outperform Your Competitors?</h2>
+      <p class="text-cream mb-4 max-w-600 mx-auto" style="opacity: 0.9; font-size: 1.15rem;">
+        Get direct access to senior Shopify growth strategists today. Let's build your profit roadmap.
+      </p>
+      <div class="d-flex justify-content-center gap-3 flex-wrap">
+        <a href="#auditForm" class="btn btn-copper btn-lg px-5 py-3"><i class="fas fa-chart-line me-2"></i> Request Free Audit</a>
+        <a href="tel:+61730008899" class="btn btn-sage btn-lg px-5 py-3"><i class="fas fa-phone-alt me-2"></i> Call +61 7 3000 8899</a>
+      </div>
+    </div>
+  </section>
+{% endblock %}

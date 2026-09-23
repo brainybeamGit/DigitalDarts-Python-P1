@@ -1,0 +1,168 @@
+{% extends 'admin_base.html' %}
+{% load static %}
+
+{% block title %}Blog Manager - Digital Darts Admin Portal{% endblock %}
+
+{% block content %}
+  <!-- Action Bar -->
+  <div class="admin-card">
+    <div class="d-flex justify-content-between align-items-center flex-wrap gap-3">
+      <div>
+        <h5 class="fw-bold text-dark mb-1">Knowledge Hub Articles</h5>
+        <p class="small text-muted mb-0">Publish new masterclass guides, update Liquid code snippets, and manage drafts in real time.</p>
+      </div>
+
+      <div class="d-flex gap-2">
+        <select id="blogStatusFilter" class="form-select form-select-sm bg-white border-secondary" style="width: 170px;">
+          <option value="all">All Articles</option>
+          <option value="published">Published</option>
+          <option value="draft">Drafts</option>
+        </select>
+
+        <button class="btn btn-sm btn-dark px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#newPostModal">
+          <i class="fas fa-plus me-1 text-warning"></i> Create New Article
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Blog Posts Cards Grid -->
+  <div class="row g-4" id="adminBlogGrid">
+    
+    <!-- Post 1 -->
+    <div class="col-md-6 col-lg-4 blog-admin-item" data-status="published">
+      <div class="blog-admin-card h-100 d-flex flex-column">
+        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80" class="blog-admin-card-img" alt="Post 1">
+        <div class="p-4 d-flex flex-column flex-grow-1">
+          <div class="d-flex justify-content-between align-items-center mb-2">
+            <span class="badge bg-sage text-dark fw-bold">Shopify SEO</span>
+            <span class="badge bg-success text-white">Published</span>
+          </div>
+          <h5 class="fw-bold text-dark mb-2">The Ultimate Shopify SEO Guide for 2026</h5>
+          <p class="small text-muted mb-4">Step-by-step Liquid theme canonical URL fix and collection page keyword siloing framework.</p>
+          
+          <div class="mt-auto pt-3 border-top d-flex justify-content-between align-items-center">
+            <span class="small text-muted"><i class="far fa-clock me-1"></i> 18 Min Read</span>
+            <div class="d-flex gap-1">
+              <button class="btn btn-sm btn-outline-dark btn-toggle-publish" data-published="true"><i class="fas fa-eye-slash"></i> Unpublish</button>
+              <button class="btn btn-sm btn-outline-danger btn-delete-post"><i class="fas fa-trash"></i></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Post 2 -->
+    <div class="col-md-6 col-lg-4 blog-admin-item" data-status="published">
+      <div class="blog-admin-card h-100 d-flex flex-column">
+        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80" class="blog-admin-card-img" alt="Post 2">
+        <div class="p-4 d-flex flex-column flex-grow-1">
+          <div class="d-flex justify-content-between align-items-center mb-2">
+            <span class="badge bg-info text-dark fw-bold">Google Ads</span>
+            <span class="badge bg-success text-white">Published</span>
+          </div>
+          <h5 class="fw-bold text-dark mb-2">How to Calculate True Break-Even ROAS</h5>
+          <p class="small text-muted mb-4">Stop relying on ad platform ROAS metrics. Learn how COGS, shipping, and merchant fees impact ROAS.</p>
+          
+          <div class="mt-auto pt-3 border-top d-flex justify-content-between align-items-center">
+            <span class="small text-muted"><i class="far fa-clock me-1"></i> 12 Min Read</span>
+            <div class="d-flex gap-1">
+              <button class="btn btn-sm btn-outline-dark btn-toggle-publish" data-published="true"><i class="fas fa-eye-slash"></i> Unpublish</button>
+              <button class="btn btn-sm btn-outline-danger btn-delete-post"><i class="fas fa-trash"></i></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Post 3 -->
+    <div class="col-md-6 col-lg-4 blog-admin-item" data-status="published">
+      <div class="blog-admin-card h-100 d-flex flex-column">
+        <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=800&q=80" class="blog-admin-card-img" alt="Post 3">
+        <div class="p-4 d-flex flex-column flex-grow-1">
+          <div class="d-flex justify-content-between align-items-center mb-2">
+            <span class="badge bg-warning text-dark fw-bold">PMax Strategy</span>
+            <span class="badge bg-success text-white">Published</span>
+          </div>
+          <h5 class="fw-bold text-dark mb-2">Performance Max SKU Margin Clustering</h5>
+          <p class="small text-muted mb-4">Group your Shopify products by margin tiers inside Performance Max to stop low-profit SKUs from burning budget.</p>
+          
+          <div class="mt-auto pt-3 border-top d-flex justify-content-between align-items-center">
+            <span class="small text-muted"><i class="far fa-clock me-1"></i> 15 Min Read</span>
+            <div class="d-flex gap-1">
+              <button class="btn btn-sm btn-outline-dark btn-toggle-publish" data-published="true"><i class="fas fa-eye-slash"></i> Unpublish</button>
+              <button class="btn btn-sm btn-outline-danger btn-delete-post"><i class="fas fa-trash"></i></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Post 4 (Draft) -->
+    <div class="col-md-6 col-lg-4 blog-admin-item" data-status="draft">
+      <div class="blog-admin-card h-100 d-flex flex-column">
+        <img src="https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=800&q=80" class="blog-admin-card-img" alt="Post 4">
+        <div class="p-4 d-flex flex-column flex-grow-1">
+          <div class="d-flex justify-content-between align-items-center mb-2">
+            <span class="badge bg-secondary text-white fw-bold">Conversion Rate</span>
+            <span class="badge bg-warning text-dark">Draft</span>
+          </div>
+          <h5 class="fw-bold text-dark mb-2">Top 5 Checkout Friction Points for Shopify Plus</h5>
+          <p class="small text-muted mb-4">UX teardown of high-converting checkout flows and how to optimize express checkout buttons.</p>
+          
+          <div class="mt-auto pt-3 border-top d-flex justify-content-between align-items-center">
+            <span class="small text-muted"><i class="far fa-clock me-1"></i> 10 Min Read</span>
+            <div class="d-flex gap-1">
+              <button class="btn btn-sm btn-success btn-toggle-publish" data-published="false"><i class="fas fa-paper-plane"></i> Publish</button>
+              <button class="btn btn-sm btn-outline-danger btn-delete-post"><i class="fas fa-trash"></i></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Create New Article Modal -->
+  <div class="modal fade modal-admin" id="newPostModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-header-title mb-0 fw-bold"><i class="fas fa-plus-circle me-2 text-warning"></i> Publish New Blog Masterclass</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <form id="createPostForm">
+          <div class="modal-body p-4">
+            <div class="mb-3">
+              <label class="form-label fw-bold small text-dark">Article Title <span class="text-danger">*</span></label>
+              <input type="text" class="form-control" id="postTitleInput" placeholder="e.g. Scaling Shopify Google Ads in Q4" required>
+            </div>
+            <div class="row g-3 mb-3">
+              <div class="col-md-6">
+                <label class="form-label fw-bold small text-dark">Category <span class="text-danger">*</span></label>
+                <select class="form-select" id="postCategoryInput" required>
+                  <option value="Shopify SEO">Shopify SEO</option>
+                  <option value="Google Ads">Google Ads</option>
+                  <option value="PMax Strategy">PMax Strategy</option>
+                  <option value="Conversion Rate">Conversion Rate</option>
+                </select>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label fw-bold small text-dark">Read Time (Mins) <span class="text-danger">*</span></label>
+                <input type="number" class="form-control" id="postReadTimeInput" value="15" required>
+              </div>
+            </div>
+            <div class="mb-3">
+              <label class="form-label fw-bold small text-dark">Article Excerpt Summary <span class="text-danger">*</span></label>
+              <textarea class="form-control" id="postExcerptInput" rows="3" placeholder="Brief 2-line summary of the growth playbook..." required></textarea>
+            </div>
+          </div>
+          <div class="modal-footer bg-light p-3">
+            <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Cancel</button>
+            <button type="submit" class="btn btn-dark btn-sm fw-bold"><i class="fas fa-paper-plane me-1"></i> Publish Article</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+{% endblock %}

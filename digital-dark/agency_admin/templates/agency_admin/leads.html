@@ -1,0 +1,193 @@
+{% extends 'admin_base.html' %}
+{% load static %}
+
+{% block title %}Audit Leads CRM - Digital Darts Admin Portal{% endblock %}
+
+{% block content %}
+  <!-- Control Bar: Search & Status Filter -->
+  <div class="admin-card">
+    <div class="d-flex justify-content-between align-items-center flex-wrap gap-3">
+      <div class="d-flex align-items-center gap-3">
+        <label class="fw-bold text-muted small text-uppercase" style="letter-spacing: 0.05em;">STATUS FILTER:</label>
+        <select id="adminStatusFilter" class="form-select form-select-sm bg-white text-dark border-secondary" style="width: 200px; border-radius: 8px;">
+          <option value="all">All Audit Leads</option>
+          <option value="new">New Requests</option>
+          <option value="audit_sent">Audit Sent</option>
+          <option value="closed_won">Closed Won</option>
+          <option value="closed_lost">Closed Lost</option>
+        </select>
+      </div>
+
+      <div class="text-muted small">
+        Displaying <strong id="visibleLeadCount" class="text-dark">4 Inquiries</strong>
+      </div>
+    </div>
+  </div>
+
+  <!-- Leads Data Table -->
+  <div class="admin-card p-0 overflow-hidden">
+    <div class="table-responsive">
+      <table class="admin-table mb-0">
+        <thead>
+          <tr>
+            <th>Store URL / Company</th>
+            <th>Contact Person</th>
+            <th>Monthly Revenue</th>
+            <th>Monthly Spend</th>
+            <th>Primary Goal</th>
+            <th>Pipeline Status</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody id="leadsTableBody">
+          
+          <!-- Lead 1 -->
+          <tr class="lead-table-row" data-status="new" data-id="1">
+            <td>
+              <div class="fw-bold text-dark">Apex Athletics</div>
+              <a href="https://apexgear.com.au" target="_blank" class="small text-decoration-none" style="color: var(--admin-rose-dark);">apexgear.com.au <i class="fas fa-external-link-alt ms-1" style="font-size: 0.75rem;"></i></a>
+            </td>
+            <td>
+              <div class="fw-semibold">Alex Morgan</div>
+              <div class="small text-muted">alex@apexgear.com.au</div>
+            </td>
+            <td><span class="badge bg-light text-dark border font-mono">$50,000 - $200,000</span></td>
+            <td><span class="badge bg-light text-dark border font-mono">$12,000 / mo</span></td>
+            <td><span class="small text-muted text-truncate d-inline-block" style="max-width: 180px;">Scale Google Performance Max & cut wasted terms.</span></td>
+            <td><span class="badge-status new"><i class="fas fa-circle" style="font-size: 0.5rem;"></i> New Request</span></td>
+            <td>
+              <button class="btn btn-sm btn-dark px-3 btn-inspect-lead" data-id="1" data-name="Alex Morgan" data-store="Apex Athletics" data-url="https://apexgear.com.au" data-email="alex@apexgear.com.au" data-rev="$50,000 - $200,000 / mo" data-spend="$12,000 / mo" data-goal="Scale Google Performance Max & cut wasted terms while boosting net profit margins." data-status="new">
+                <i class="fas fa-eye me-1"></i> Inspect
+              </button>
+            </td>
+          </tr>
+
+          <!-- Lead 2 -->
+          <tr class="lead-table-row" data-status="audit_sent" data-id="2">
+            <td>
+              <div class="fw-bold text-dark">Craftsman Leather Goods</div>
+              <a href="https://craftsmanleather.com" target="_blank" class="small text-decoration-none" style="color: var(--admin-rose-dark);">craftsmanleather.com <i class="fas fa-external-link-alt ms-1" style="font-size: 0.75rem;"></i></a>
+            </td>
+            <td>
+              <div class="fw-semibold">Rachel Lawson</div>
+              <div class="small text-muted">rachel@craftsman.com</div>
+            </td>
+            <td><span class="badge bg-light text-dark border font-mono">$200,000+ / mo</span></td>
+            <td><span class="badge bg-light text-dark border font-mono">$25,000 / mo</span></td>
+            <td><span class="small text-muted text-truncate d-inline-block" style="max-width: 180px;">Fix duplicate canonical links & collection SEO.</span></td>
+            <td><span class="badge-status audit_sent"><i class="fas fa-paper-plane" style="font-size: 0.6rem;"></i> Audit Sent</span></td>
+            <td>
+              <button class="btn btn-sm btn-dark px-3 btn-inspect-lead" data-id="2" data-name="Rachel Lawson" data-store="Craftsman Leather Goods" data-url="https://craftsmanleather.com" data-email="rachel@craftsman.com" data-rev="$200,000+ / mo" data-spend="$25,000 / mo" data-goal="Fix duplicate canonical links and build collection page keyword siloing for organic search scale." data-status="audit_sent">
+                <i class="fas fa-eye me-1"></i> Inspect
+              </button>
+            </td>
+          </tr>
+
+          <!-- Lead 3 -->
+          <tr class="lead-table-row" data-status="closed_won" data-id="3">
+            <td>
+              <div class="fw-bold text-dark">Organics Direct Skincare</div>
+              <a href="https://organicsdirect.co" target="_blank" class="small text-decoration-none" style="color: var(--admin-rose-dark);">organicsdirect.co <i class="fas fa-external-link-alt ms-1" style="font-size: 0.75rem;"></i></a>
+            </td>
+            <td>
+              <div class="fw-semibold">Melissa Knight</div>
+              <div class="small text-muted">melissa@organics.co</div>
+            </td>
+            <td><span class="badge bg-light text-dark border font-mono">$50,000 - $200,000</span></td>
+            <td><span class="badge bg-light text-dark border font-mono">$15,000 / mo</span></td>
+            <td><span class="small text-muted text-truncate d-inline-block" style="max-width: 180px;">Scale Meta ad creative & checkout CRO.</span></td>
+            <td><span class="badge-status closed_won"><i class="fas fa-check" style="font-size: 0.6rem;"></i> Closed Won</span></td>
+            <td>
+              <button class="btn btn-sm btn-dark px-3 btn-inspect-lead" data-id="3" data-name="Melissa Knight" data-store="Organics Direct Skincare" data-url="https://organicsdirect.co" data-email="melissa@organics.co" data-rev="$50,000 - $200,000 / mo" data-spend="$15,000 / mo" data-goal="Scale Meta ad creative & checkout CRO to hit a 4.0x target blended ROAS." data-status="closed_won">
+                <i class="fas fa-eye me-1"></i> Inspect
+              </button>
+            </td>
+          </tr>
+
+          <!-- Lead 4 -->
+          <tr class="lead-table-row" data-status="new" data-id="4">
+            <td>
+              <div class="fw-bold text-dark">Luxe Home Decor</div>
+              <a href="https://luxehome.com.au" target="_blank" class="small text-decoration-none" style="color: var(--admin-rose-dark);">luxehome.com.au <i class="fas fa-external-link-alt ms-1" style="font-size: 0.75rem;"></i></a>
+            </td>
+            <td>
+              <div class="fw-semibold">David Vance</div>
+              <div class="small text-muted">david@luxehome.com.au</div>
+            </td>
+            <td><span class="badge bg-light text-dark border font-mono">$20,000 - $50,000</span></td>
+            <td><span class="badge bg-light text-dark border font-mono">$6,500 / mo</span></td>
+            <td><span class="small text-muted text-truncate d-inline-block" style="max-width: 180px;">Need senior agency to audit Google Shopping.</span></td>
+            <td><span class="badge-status new"><i class="fas fa-circle" style="font-size: 0.5rem;"></i> New Request</span></td>
+            <td>
+              <button class="btn btn-sm btn-dark px-3 btn-inspect-lead" data-id="4" data-name="David Vance" data-store="Luxe Home Decor" data-url="https://luxehome.com.au" data-email="david@luxehome.com.au" data-rev="$20,000 - $50,000 / mo" data-spend="$6,500 / mo" data-goal="Need senior agency to audit Google Shopping campaigns & fix low conversion rates." data-status="new">
+                <i class="fas fa-eye me-1"></i> Inspect
+              </button>
+            </td>
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Lead Detail Modal Drawer -->
+  <div class="modal fade modal-admin" id="leadDetailModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-header-title mb-0 fw-bold"><i class="fas fa-clipboard-list me-2"></i> Audit Lead Inspector</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body p-4">
+          <div class="row g-4 mb-4">
+            <div class="col-md-6">
+              <label class="small text-muted text-uppercase fw-bold d-block mb-1">Company / Store Name</label>
+              <h5 id="modalStoreName" class="fw-bold text-dark mb-0">Store Name</h5>
+              <a href="#" id="modalStoreUrl" target="_blank" class="small text-rose fw-semibold">https://store.com</a>
+            </div>
+            <div class="col-md-6 text-md-end">
+              <label class="small text-muted text-uppercase fw-bold d-block mb-1">Current Pipeline Status</label>
+              <span id="modalStatusBadge" class="badge-status new">New Request</span>
+            </div>
+          </div>
+
+          <div class="row g-3 mb-4 p-3 rounded" style="background-color: var(--admin-card-alt); border: 1px solid var(--admin-border);">
+            <div class="col-md-6">
+              <span class="small text-muted d-block">Contact Name:</span>
+              <strong id="modalContactName" class="text-dark">Name</strong>
+            </div>
+            <div class="col-md-6">
+              <span class="small text-muted d-block">Work Email:</span>
+              <strong id="modalContactEmail" class="text-dark">email@store.com</strong>
+            </div>
+            <div class="col-md-6">
+              <span class="small text-muted d-block">Monthly Store Revenue:</span>
+              <strong id="modalRevenue" class="text-dark">$0/mo</strong>
+            </div>
+            <div class="col-md-6">
+              <span class="small text-muted d-block">Monthly Ad Spend:</span>
+              <strong id="modalAdSpend" class="text-dark">$0/mo</strong>
+            </div>
+          </div>
+
+          <div class="mb-4">
+            <label class="small text-muted text-uppercase fw-bold d-block mb-1">Primary Growth Goal & Notes</label>
+            <div id="modalGoalNotes" class="p-3 bg-white rounded border text-muted small" style="line-height: 1.6;">
+              Goal details...
+            </div>
+          </div>
+
+          <!-- Quick Action Buttons -->
+          <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 pt-3 border-top">
+            <span class="small text-muted fw-bold">UPDATE STATUS:</span>
+            <div class="d-flex gap-2">
+              <button class="btn btn-sm btn-outline-primary btn-update-status" data-status="audit_sent"><i class="fas fa-paper-plane me-1"></i> Mark Audit Sent</button>
+              <button class="btn btn-sm btn-outline-success btn-update-status" data-status="closed_won"><i class="fas fa-check-circle me-1"></i> Mark Closed Won</button>
+              <button class="btn btn-sm btn-outline-danger btn-update-status" data-status="closed_lost"><i class="fas fa-times-circle me-1"></i> Mark Closed Lost</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

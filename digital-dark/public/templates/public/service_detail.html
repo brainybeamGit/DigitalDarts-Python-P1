@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{ service.title }} - Digital Dark Services{% endblock %}
+
+{% block content %}
+<section class="section-padding bg-cream">
+  <div class="container my-5">
+    <div class="row g-5">
+      <div class="col-lg-8">
+        <span class="badge badge-sage mb-3"><i class="fas {{ service.icon }} me-1"></i> Core Growth Service</span>
+        <h1 class="display-5 fw-extrabold text-espresso mb-3">{{ service.title }}</h1>
+        <p class="lead text-muted mb-4">{{ service.short_description }}</p>
+
+        <div class="card p-4 border-0 shadow-sm mb-4" style="background-color: #FFFDF8; border-radius: 20px;">
+          <h4 class="fw-bold text-espresso mb-3">Overview & Deliverables</h4>
+          <div class="text-dark" style="line-height: 1.8; white-space: pre-wrap;">{{ service.full_description }}</div>
+        </div>
+
+        <div class="card p-4 bg-espresso text-light border-0 shadow-lg" style="border-radius: 20px;">
+          <h4 class="fw-bold text-cream mb-2">Ready to scale {{ service.title }} for your brand?</h4>
+          <p class="text-cream-muted small mb-4">Schedule a free 30-minute growth audit with our senior Shopify engineers.</p>
+          <a href="{% url 'public:contact' %}" class="btn btn-copper btn-lg fw-bold px-4">Request Free Growth Audit</a>
+        </div>
+      </div>
+
+      <div class="col-lg-4">
+        <div class="card p-4 border-0 shadow-sm" style="background-color: #FFFDF8; border-radius: 20px;">
+          <h5 class="fw-bold text-espresso mb-3">Other Services</h5>
+          <div class="list-group list-group-flush">
+            {% for s in other_services %}
+              <a href="{% url 'public:service_detail' s.slug %}" class="list-group-item list-group-item-action border-0 px-0 py-2 d-flex align-items-center gap-2">
+                <i class="fas {{ s.icon }} text-copper"></i>
+                <span class="fw-semibold text-dark">{{ s.title }}</span>
+              </a>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
