@@ -1,30 +1,253 @@
 {% extends 'admin_base.html' %}
 {% block title %}Staff Workspace Overview - Digital Dark{% endblock %}
 
+{% block extra_css %}
+<style>
+  .staff-metric-card {
+    background: #FFFFFF;
+    border: 1px solid rgba(148, 109, 109, 0.16) !important;
+    border-radius: 20px;
+    padding: 24px 26px;
+    box-shadow: 0 10px 28px rgba(148, 109, 109, 0.08);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 170px;
+  }
+  .staff-metric-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 36px rgba(148, 109, 109, 0.16);
+    border-color: rgba(148, 109, 109, 0.3) !important;
+  }
+  .staff-metric-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    border-radius: 20px 20px 0 0;
+  }
+  .staff-metric-card.card-leads::before {
+    background: linear-gradient(90deg, #F59E0B, #D97706);
+  }
+  .staff-metric-card.card-drafts::before {
+    background: linear-gradient(90deg, #3B82F6, #1D4ED8);
+  }
+  .staff-metric-card .card-glow-bg {
+    position: absolute;
+    top: -30px;
+    right: -30px;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    pointer-events: none;
+    opacity: 0.12;
+    filter: blur(20px);
+    transition: all 0.3s ease;
+  }
+  .staff-metric-card.card-leads .card-glow-bg {
+    background: #F59E0B;
+  }
+  .staff-metric-card.card-drafts .card-glow-bg {
+    background: #3B82F6;
+  }
+  .staff-metric-card:hover .card-glow-bg {
+    opacity: 0.22;
+    transform: scale(1.15);
+  }
+  .staff-metric-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+  }
+  .staff-metric-title {
+    font-size: 0.74rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--admin-text-muted, #6B5555);
+  }
+  .staff-metric-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 3px 9px;
+    border-radius: 20px;
+    letter-spacing: 0.02em;
+  }
+  .staff-metric-badge.badge-amber {
+    background: rgba(245, 158, 11, 0.12);
+    color: #B45309;
+  }
+  .staff-metric-badge.badge-blue {
+    background: rgba(59, 130, 246, 0.12);
+    color: #1D4ED8;
+  }
+  .staff-metric-badge.badge-neutral {
+    background: rgba(148, 109, 109, 0.1);
+    color: #6B5555;
+  }
+  .staff-metric-icon-box {
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+  }
+  .staff-metric-card:hover .staff-metric-icon-box {
+    transform: scale(1.06);
+  }
+  .staff-metric-card.card-leads .staff-metric-icon-box {
+    background: linear-gradient(135deg, rgba(245, 158, 11, 0.16) 0%, rgba(217, 119, 6, 0.08) 100%);
+    color: #D97706;
+    border: 1px solid rgba(245, 158, 11, 0.25);
+  }
+  .staff-metric-card.card-drafts .staff-metric-icon-box {
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.16) 0%, rgba(37, 99, 235, 0.08) 100%);
+    color: #2563EB;
+    border: 1px solid rgba(59, 130, 246, 0.25);
+  }
+  .staff-metric-body {
+    margin-top: 4px;
+    margin-bottom: 16px;
+  }
+  .staff-metric-value {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 2.6rem;
+    font-weight: 800;
+    line-height: 1;
+    color: var(--admin-sidebar, #3A2323);
+    margin-bottom: 0;
+    letter-spacing: -0.03em;
+  }
+  .staff-metric-unit {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--admin-text-muted, #6B5555);
+  }
+  .staff-metric-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 12px;
+    border-top: 1px solid rgba(148, 109, 109, 0.1);
+    font-size: 0.8rem;
+    color: var(--admin-text-muted, #6B5555);
+  }
+  .staff-metric-link {
+    font-weight: 700;
+    font-size: 0.78rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    transition: all 0.2s ease;
+    text-decoration: none;
+  }
+  .staff-metric-card.card-leads .staff-metric-link {
+    color: #B45309;
+  }
+  .staff-metric-card.card-drafts .staff-metric-link {
+    color: #1D4ED8;
+  }
+  .staff-metric-card:hover .staff-metric-link {
+    gap: 8px;
+  }
+</style>
+{% endblock %}
+
 {% block content %}
 <div class="row g-4 mb-4">
+  <!-- Metric Card: New Inbound Leads -->
   <div class="col-md-6">
-    <div class="admin-card p-4 d-flex align-items-center justify-content-between border-start border-4 border-warning">
+    <div class="staff-metric-card card-leads">
+      <div class="card-glow-bg"></div>
       <div>
-        <h6 class="text-muted mb-1 text-uppercase fw-bold" style="font-size: 0.75rem;">New Inbound Leads</h6>
-        <h2 class="fw-extrabold text-dark mb-0">{{ new_leads_count }}</h2>
-        <span class="small text-muted">Awaiting staff response</span>
+        <div class="staff-metric-header">
+          <div class="d-flex align-items-center gap-2">
+            <span class="staff-metric-title">New Inbound Leads</span>
+            {% if new_leads_count > 0 %}
+              <span class="staff-metric-badge badge-amber">
+                <i class="fas fa-bolt"></i> Action Required
+              </span>
+            {% else %}
+              <span class="staff-metric-badge badge-neutral">
+                <i class="fas fa-check-circle"></i> Up to Date
+              </span>
+            {% endif %}
+          </div>
+          <div class="staff-metric-icon-box">
+            <i class="fas fa-user-clock"></i>
+          </div>
+        </div>
+
+        <div class="staff-metric-body">
+          <div class="d-flex align-items-baseline gap-2">
+            <h2 class="staff-metric-value">{{ new_leads_count }}</h2>
+            <span class="staff-metric-unit">uncontacted</span>
+          </div>
+        </div>
       </div>
-      <div class="stat-icon bg-warning-subtle text-warning rounded-circle p-3 fs-3">
-        <i class="fas fa-user-clock"></i>
+
+      <div class="staff-metric-footer">
+        <span class="d-flex align-items-center gap-2">
+          <i class="fas fa-clock text-warning"></i> Awaiting staff response
+        </span>
+        <a href="{% url 'agency_admin:staff_leads_list' %}" class="staff-metric-link">
+          Review Leads <i class="fas fa-arrow-right"></i>
+        </a>
       </div>
     </div>
   </div>
 
+  <!-- Metric Card: Draft Posts Pending -->
   <div class="col-md-6">
-    <div class="admin-card p-4 d-flex align-items-center justify-content-between border-start border-4 border-info">
+    <div class="staff-metric-card card-drafts">
+      <div class="card-glow-bg"></div>
       <div>
-        <h6 class="text-muted mb-1 text-uppercase fw-bold" style="font-size: 0.75rem;">Draft Posts Pending</h6>
-        <h2 class="fw-extrabold text-dark mb-0">{{ pending_drafts_count }}</h2>
-        <span class="small text-muted">Drafts awaiting admin publish approval</span>
+        <div class="staff-metric-header">
+          <div class="d-flex align-items-center gap-2">
+            <span class="staff-metric-title">Draft Posts Pending</span>
+            {% if pending_drafts_count > 0 %}
+              <span class="staff-metric-badge badge-blue">
+                <i class="fas fa-hourglass-half"></i> In Review
+              </span>
+            {% else %}
+              <span class="staff-metric-badge badge-neutral">
+                <i class="fas fa-check-circle"></i> Queue Clear
+              </span>
+            {% endif %}
+          </div>
+          <div class="staff-metric-icon-box">
+            <i class="fas fa-file-signature"></i>
+          </div>
+        </div>
+
+        <div class="staff-metric-body">
+          <div class="d-flex align-items-baseline gap-2">
+            <h2 class="staff-metric-value">{{ pending_drafts_count }}</h2>
+            <span class="staff-metric-unit">in queue</span>
+          </div>
+        </div>
       </div>
-      <div class="stat-icon bg-info-subtle text-info rounded-circle p-3 fs-3">
-        <i class="fas fa-file-signature"></i>
+
+      <div class="staff-metric-footer">
+        <span class="d-flex align-items-center gap-2">
+          <i class="fas fa-shield-alt text-primary"></i> Awaiting admin publish approval
+        </span>
+        <a href="{% url 'agency_admin:staff_posts_list' %}" class="staff-metric-link">
+          Manage Drafts <i class="fas fa-arrow-right"></i>
+        </a>
       </div>
     </div>
   </div>

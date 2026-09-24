@@ -68,7 +68,8 @@
 }
 
 /* Global Overflow Protection */
-html, body {
+html,
+body {
   max-width: 100vw;
   overflow-x: clip;
 }
@@ -92,7 +93,12 @@ body {
   line-height: 1.65;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   color: var(--espresso);
   font-weight: 800;
   letter-spacing: -0.03em;
@@ -375,6 +381,7 @@ a:hover {
   0% {
     transform: translateX(0);
   }
+
   100% {
     transform: translateX(-50%);
   }
@@ -840,7 +847,9 @@ footer .brand-logo span {
   color: var(--cream) !important;
 }
 
-footer p, footer li, footer div {
+footer p,
+footer li,
+footer div {
   color: #E8DCCB !important;
 }
 
@@ -900,6 +909,7 @@ footer p, footer li, footer div {
   .hero-title {
     font-size: 2.8rem;
   }
+
   .article-container {
     padding: 28px;
   }
