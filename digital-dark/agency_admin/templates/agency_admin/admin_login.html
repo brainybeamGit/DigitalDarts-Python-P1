@@ -5,89 +5,321 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Admin Control Login - Digital Dark Platform</title>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
   <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
     body {
-      background-color: #1F0D05;
+      background-color: #120703;
       color: #F7F1DE;
       font-family: 'Outfit', sans-serif;
       min-height: 100vh;
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
+      position: relative;
+      overflow-x: hidden;
     }
-    .card-login {
-      background-color: #2F1307;
-      border: 1px solid rgba(255, 215, 0, 0.2);
-      border-radius: 20px;
-      padding: 40px;
+
+    /* Real-Time Animation Canvas */
+    #bg-canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
       width: 100%;
-      max-width: 440px;
-      box-shadow: 0 20px 50px rgba(0,0,0,0.7);
+      height: 100%;
+      z-index: 1;
+      pointer-events: none;
     }
-    .btn-gold {
-      background-color: #D4AF37;
-      color: #1F0D05;
+
+    /* Floating Navbar Header */
+    .top-login-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 16px 28px;
+      z-index: 10;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(18, 7, 3, 0.6);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(212, 175, 55, 0.15);
+    }
+    .top-login-brand {
+      color: #F7F1DE;
       font-weight: 800;
-      border: none;
-      padding: 12px;
-      border-radius: 12px;
-      width: 100%;
+      font-size: 1.25rem;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .top-login-brand i {
+      color: #D4AF37;
+    }
+    .top-login-link {
+      color: #D4AF37;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.9rem;
+      padding: 8px 16px;
+      border: 1px solid rgba(212, 175, 55, 0.3);
+      border-radius: 50px;
       transition: all 0.3s ease;
     }
+    .top-login-link:hover {
+      background-color: #D4AF37;
+      color: #120703;
+    }
+
+    /* Login Card Container */
+    .login-container {
+      position: relative;
+      z-index: 5;
+      width: 100%;
+      max-width: 440px;
+      padding: 20px;
+      margin-top: 60px;
+    }
+
+    .card-login {
+      background: rgba(47, 19, 7, 0.85);
+      backdrop-filter: blur(24px);
+      border: 1px solid rgba(212, 175, 55, 0.35);
+      border-radius: 24px;
+      padding: 42px 36px;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8), 0 0 30px rgba(212, 175, 55, 0.15);
+      transition: all 0.3s ease;
+    }
+    .card-login:hover {
+      border-color: rgba(212, 175, 55, 0.6);
+      box-shadow: 0 30px 70px rgba(0, 0, 0, 0.85), 0 0 40px rgba(212, 175, 55, 0.25);
+    }
+
+    .crown-badge {
+      width: 64px;
+      height: 64px;
+      background: linear-gradient(135deg, #D4AF37, #9D6638);
+      color: #120703;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.75rem;
+      box-shadow: 0 0 25px rgba(212, 175, 55, 0.5);
+      animation: pulseGlow 3s infinite ease-in-out;
+    }
+
+    @keyframes pulseGlow {
+      0%, 100% { transform: scale(1); box-shadow: 0 0 25px rgba(212, 175, 55, 0.5); }
+      50% { transform: scale(1.06); box-shadow: 0 0 35px rgba(212, 175, 55, 0.8); }
+    }
+
+    /* Form Controls & Typography */
+    .login-heading {
+      color: #FFFFFF !important;
+      font-weight: 800;
+      font-size: 1.6rem;
+      letter-spacing: -0.02em;
+    }
+    .login-subheading {
+      color: #E8DCCB !important;
+      font-size: 0.9rem;
+    }
+
+    .form-label-custom {
+      color: #F7F1DE !important;
+      font-weight: 700;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 8px;
+    }
+
+    .form-control-custom {
+      background-color: rgba(247, 241, 222, 0.08) !important;
+      border: 1px solid rgba(247, 241, 222, 0.25) !important;
+      color: #FFFFFF !important;
+      border-radius: 12px !important;
+      padding: 14px 16px !important;
+      font-size: 0.98rem;
+      transition: all 0.3s ease;
+    }
+    .form-control-custom::placeholder {
+      color: rgba(247, 241, 222, 0.45) !important;
+    }
+    .form-control-custom:focus {
+      background-color: rgba(247, 241, 222, 0.15) !important;
+      border-color: #D4AF37 !important;
+      box-shadow: 0 0 15px rgba(212, 175, 55, 0.4) !important;
+      outline: none !important;
+      color: #FFFFFF !important;
+    }
+
+    .btn-gold {
+      background: linear-gradient(135deg, #D4AF37, #B38F24);
+      color: #120703;
+      font-weight: 800;
+      font-size: 1rem;
+      border: none;
+      padding: 15px;
+      border-radius: 50px;
+      width: 100%;
+      box-shadow: 0 8px 25px rgba(212, 175, 55, 0.35);
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
     .btn-gold:hover {
-      background-color: #B38F24;
-      color: #FFF;
+      background: linear-gradient(135deg, #F3E5AB, #D4AF37);
+      color: #120703;
+      transform: translateY(-2px);
+      box-shadow: 0 12px 30px rgba(212, 175, 55, 0.5);
     }
-    .form-control {
-      background-color: rgba(247, 241, 222, 0.05);
-      border: 1px solid rgba(247, 241, 222, 0.2);
-      color: #F7F1DE;
-      border-radius: 10px;
-      padding: 12px;
+
+    .back-home-link {
+      color: #D5DDCA !important;
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 600;
+      transition: all 0.3s ease;
     }
-    .form-control:focus {
-      background-color: rgba(247, 241, 222, 0.1);
-      border-color: #D4AF37;
-      color: #F7F1DE;
-      box-shadow: none;
+    .back-home-link:hover {
+      color: #F7F1DE !important;
+      text-decoration: underline;
     }
   </style>
 </head>
 <body>
-  <div class="card-login">
-    <div class="text-center mb-4">
-      <div class="d-inline-flex align-items-center justify-content-center bg-warning text-dark rounded-circle mb-3" style="width: 58px; height: 58px; font-size: 1.6rem; box-shadow: 0 0 20px rgba(212,175,55,0.4);">
-        <i class="fas fa-crown"></i>
-      </div>
-      <h3 class="fw-bold text-white mb-1">Superuser Control Panel</h3>
-      <p class="small text-muted">Admin System Operations & Management</p>
-    </div>
 
-    {% if messages %}
-      {% for message in messages %}
-        <div class="alert alert-danger py-2 px-3 small rounded-3 mb-3">{{ message }}</div>
-      {% endfor %}
-    {% endif %}
+  <!-- Top Floating Header -->
+  <header class="top-login-nav">
+    <a href="{% url 'public:index' %}" class="top-login-brand">
+      <i class="fas fa-bullseye"></i> Digital Dark Admin
+    </a>
+    <a href="{% url 'agency_admin:staff_login' %}" class="top-login-link">
+      <i class="fas fa-user-shield me-1"></i> Staff Portal
+    </a>
+  </header>
 
-    <form method="POST">
-      {% csrf_token %}
-      <div class="mb-3">
-        <label class="form-label small fw-semibold">Admin Username</label>
-        <input type="text" name="username" class="form-control" placeholder="Enter superuser username" required>
+  <!-- Real-Time Background Animation Canvas -->
+  <canvas id="bg-canvas"></canvas>
+
+  <div class="login-container">
+    <div class="card-login">
+      <div class="text-center mb-4">
+        <div class="crown-badge mb-3">
+          <i class="fas fa-crown"></i>
+        </div>
+        <h1 class="login-heading mb-1">Superuser Portal</h1>
+        <p class="login-subheading">Admin Operations & Platform Control</p>
       </div>
-      <div class="mb-4">
-        <label class="form-label small fw-semibold">Admin Password</label>
-        <input type="password" name="password" class="form-control" placeholder="••••••••" required>
+
+      {% if messages %}
+        {% for message in messages %}
+          <div class="alert alert-danger py-2 px-3 small rounded-3 mb-3 border-0 bg-danger text-white fw-bold">{{ message }}</div>
+        {% endfor %}
+      {% endif %}
+
+      <form method="POST">
+        {% csrf_token %}
+        <div class="mb-3">
+          <label class="form-label form-label-custom">Admin Username</label>
+          <div class="input-group">
+            <span class="input-group-text bg-transparent border-end-0 text-warning" style="border-color: rgba(247, 241, 222, 0.25);"><i class="fas fa-user-gear"></i></span>
+            <input type="text" name="username" class="form-control form-control-custom border-start-0" placeholder="Enter superuser username" required>
+          </div>
+        </div>
+        <div class="mb-4">
+          <label class="form-label form-label-custom">Admin Password</label>
+          <div class="input-group">
+            <span class="input-group-text bg-transparent border-end-0 text-warning" style="border-color: rgba(247, 241, 222, 0.25);"><i class="fas fa-lock"></i></span>
+            <input type="password" name="password" class="form-control form-control-custom border-start-0" placeholder="••••••••" required>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-gold">Authenticate Superuser <i class="fas fa-shield-halved ms-1"></i></button>
+      </form>
+      
+      <div class="mt-4 text-center">
+        <a href="{% url 'public:index' %}" class="back-home-link"><i class="fas fa-arrow-left me-1"></i> Return to Digital Dark Website</a>
       </div>
-      <button type="submit" class="btn btn-gold">Authenticate Superuser</button>
-    </form>
-    
-    <div class="mt-4 text-center">
-      <a href="{% url 'public:index' %}" class="small text-muted text-decoration-none"><i class="fas fa-arrow-left me-1"></i> Back to Public Site</a>
     </div>
   </div>
+
+  <!-- Interactive Real-Time Canvas Particle Animation Script -->
+  <script>
+    (function() {
+      const canvas = document.getElementById('bg-canvas');
+      const ctx = canvas.getContext('2d');
+      let width, height;
+
+      function resize() {
+        width = canvas.width = window.innerWidth;
+        height = canvas.height = window.innerHeight;
+      }
+      window.addEventListener('resize', resize);
+      resize();
+
+      // Bubble Orbs
+      const bubbles = [];
+      const numBubbles = 45;
+
+      for (let i = 0; i < numBubbles; i++) {
+        bubbles.push({
+          x: Math.random() * width,
+          y: Math.random() * height,
+          radius: Math.random() * 12 + 4,
+          vx: (Math.random() - 0.5) * 0.8,
+          vy: -Math.random() * 0.7 - 0.2,
+          color: Math.random() > 0.4 ? 'rgba(212, 175, 55, ' : 'rgba(157, 102, 56, ',
+          opacity: Math.random() * 0.4 + 0.1,
+          pulse: Math.random() * 0.02
+        });
+      }
+
+      function animate() {
+        ctx.clearRect(0, 0, width, height);
+
+        // Ambient Background Gradient Glow
+        const bgGrad = ctx.createRadialGradient(width / 2, height / 2, 100, width / 2, height / 2, width);
+        bgGrad.addColorStop(0, 'rgba(47, 19, 7, 0.4)');
+        bgGrad.addColorStop(1, 'rgba(18, 7, 3, 0.95)');
+        ctx.fillStyle = bgGrad;
+        ctx.fillRect(0, 0, width, height);
+
+        // Draw and Update Bubbles
+        bubbles.forEach(b => {
+          b.x += b.vx;
+          b.y += b.vy;
+          b.opacity += Math.sin(Date.now() * 0.002) * b.pulse;
+
+          if (b.y < -20) {
+            b.y = height + 20;
+            b.x = Math.random() * width;
+          }
+          if (b.x < -20) b.x = width + 20;
+          if (b.x > width + 20) b.x = -20;
+
+          ctx.beginPath();
+          ctx.arc(b.x, b.y, b.radius, 0, Math.PI * 2);
+          ctx.fillStyle = b.color + Math.max(0.05, Math.min(0.6, b.opacity)) + ')';
+          ctx.shadowBlur = 15;
+          ctx.shadowColor = b.color + '0.8)';
+          ctx.fill();
+        });
+
+        requestAnimationFrame(animate);
+      }
+
+      animate();
+    })();
+  </script>
 </body>
 </html>

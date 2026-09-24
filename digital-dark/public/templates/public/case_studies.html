@@ -26,86 +26,115 @@
     <div class="container">
       <div class="row g-4">
 
-        <!-- Case 1 (ActiveGear Australia) -->
-        <div class="col-md-6 col-lg-4 case-item" data-category="google seo scale">
-          <div class="case-card">
-            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80" alt="ActiveGear Australia Breakdown" class="case-card-img">
-            <div class="case-card-body">
-              <div class="case-metric-pill">+410% Search Revenue</div>
-              <h4 class="fw-bold text-espresso mb-2">ActiveGear Australia</h4>
-              <p class="text-muted small mb-3">Scaled organic search and Google Performance Max revenue while cutting wasted ad spend on broad non-converting terms.</p>
-              
-              <div class="p-3 bg-cream-alt rounded mb-3 small">
-                <div class="d-flex justify-content-between mb-1">
-                  <span>Ad Spend:</span> <strong>$12,000/mo</strong>
-                </div>
-                <div class="d-flex justify-content-between mb-1">
-                  <span>Revenue:</span> <strong>$148,000/mo</strong>
-                </div>
-                <div class="d-flex justify-content-between">
-                  <span>Net Margin Lift:</span> <strong class="text-copper">+185%</strong>
+        {% if case_studies %}
+          {% for case in case_studies %}
+            <div class="col-md-6 col-lg-4 case-item" data-category="google seo scale">
+              <div class="case-card">
+                <img src="{% if case.image %}{{ case.image }}{% else %}https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80{% endif %}" alt="{{ case.title }}" class="case-card-img">
+                <div class="case-card-body">
+                  <div class="case-metric-pill">{{ case.result }}</div>
+                  <h4 class="fw-bold text-espresso mb-2">{{ case.client_name }}</h4>
+                  <p class="text-muted small mb-3">{{ case.summary }}</p>
+                  
+                  <div class="p-3 bg-cream-alt rounded mb-3 small">
+                    <div class="d-flex justify-content-between mb-1">
+                      <span>Status:</span> <strong class="text-capitalize">{{ case.status }}</strong>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                      <span>Key Impact:</span> <strong class="text-copper">{{ case.result }}</strong>
+                    </div>
+                  </div>
+
+                  <div class="d-flex justify-content-between align-items-center mt-auto">
+                    <span class="badge badge-sage">Growth Case</span>
+                    <a href="{% url 'public:case_study_detail' case.slug %}" class="fw-bold text-copper small">Read Full Breakdown <i class="fas fa-arrow-right ms-1"></i></a>
+                  </div>
                 </div>
               </div>
+            </div>
+          {% endfor %}
+        {% else %}
+          <!-- Case 1 (ActiveGear Australia) -->
+          <div class="col-md-6 col-lg-4 case-item" data-category="google seo scale">
+            <div class="case-card">
+              <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80" alt="ActiveGear Australia Breakdown" class="case-card-img">
+              <div class="case-card-body">
+                <div class="case-metric-pill">+410% Search Revenue</div>
+                <h4 class="fw-bold text-espresso mb-2">ActiveGear Australia</h4>
+                <p class="text-muted small mb-3">Scaled organic search and Google Performance Max revenue while cutting wasted ad spend on broad non-converting terms.</p>
+                
+                <div class="p-3 bg-cream-alt rounded mb-3 small">
+                  <div class="d-flex justify-content-between mb-1">
+                    <span>Ad Spend:</span> <strong>$12,000/mo</strong>
+                  </div>
+                  <div class="d-flex justify-content-between mb-1">
+                    <span>Revenue:</span> <strong>$148,000/mo</strong>
+                  </div>
+                  <div class="d-flex justify-content-between">
+                    <span>Net Margin Lift:</span> <strong class="text-copper">+185%</strong>
+                  </div>
+                </div>
 
-              <div class="d-flex justify-content-between align-items-center mt-auto">
-                <span class="badge badge-sage">SEO & Ads</span>
-                <a href="{% url 'public:case_study_detail' %}" class="fw-bold text-copper small">Read Full Breakdown <i class="fas fa-arrow-right ms-1"></i></a>
+                <div class="d-flex justify-content-between align-items-center mt-auto">
+                  <span class="badge badge-sage">SEO & Ads</span>
+                  <a href="{% url 'public:case_study_detail' 'activegear-australia' %}" class="fw-bold text-copper small">Read Full Breakdown <i class="fas fa-arrow-right ms-1"></i></a>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 
-        <!-- Case 2 (Apparel & Footwear Brand) -->
-        <div class="col-md-6 col-lg-4 case-item" data-category="google scale">
-          <div class="case-card">
-            <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=800&q=80" alt="Apparel & Footwear Brand" class="case-card-img">
-            <div class="case-card-body">
-              <div class="case-metric-pill">+340% ROAS Increase</div>
-              <h4 class="fw-bold text-espresso mb-2">Luxury Leather & Apparel</h4>
-              <p class="text-muted small mb-3">Restructured Google Performance Max and Search campaigns to eliminate generic keywords and scale target high-AOV orders.</p>
-              
-              <div class="p-3 bg-cream-alt rounded mb-3 small">
-                <div class="d-flex justify-content-between mb-1">
-                  <span>Monthly Revenue:</span> <strong>$210,000/mo</strong>
+          <!-- Case 2 (Apparel & Footwear Brand) -->
+          <div class="col-md-6 col-lg-4 case-item" data-category="google scale">
+            <div class="case-card">
+              <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=800&q=80" alt="Apparel & Footwear Brand" class="case-card-img">
+              <div class="case-card-body">
+                <div class="case-metric-pill">+340% ROAS Increase</div>
+                <h4 class="fw-bold text-espresso mb-2">Luxury Leather & Apparel</h4>
+                <p class="text-muted small mb-3">Restructured Google Performance Max and Search campaigns to eliminate generic keywords and scale target high-AOV orders.</p>
+                
+                <div class="p-3 bg-cream-alt rounded mb-3 small">
+                  <div class="d-flex justify-content-between mb-1">
+                    <span>Monthly Revenue:</span> <strong>$210,000/mo</strong>
+                  </div>
+                  <div class="d-flex justify-content-between">
+                    <span>Blended ROAS:</span> <strong class="text-copper">5.4x</strong>
+                  </div>
                 </div>
-                <div class="d-flex justify-content-between">
-                  <span>Blended ROAS:</span> <strong class="text-copper">5.4x</strong>
-                </div>
-              </div>
 
-              <div class="d-flex justify-content-between align-items-center mt-auto">
-                <span class="badge badge-sage">Google Ads</span>
-                <a href="{% url 'public:case_study_detail' %}" class="fw-bold text-copper small">Read Full Breakdown <i class="fas fa-arrow-right ms-1"></i></a>
+                <div class="d-flex justify-content-between align-items-center mt-auto">
+                  <span class="badge badge-sage">Google Ads</span>
+                  <a href="{% url 'public:case_study_detail' '340-roas-expansion-for-luxury-apparel-brand' %}" class="fw-bold text-copper small">Read Full Breakdown <i class="fas fa-arrow-right ms-1"></i></a>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 
-        <!-- Case 3 (Cosmetics DTC) -->
-        <div class="col-md-6 col-lg-4 case-item" data-category="seo scale">
-          <div class="case-card">
-            <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=800&q=80" alt="Cosmetics & Health DTC" class="case-card-img">
-            <div class="case-card-body">
-              <div class="case-metric-pill">$1.2M Organic Scale</div>
-              <h4 class="fw-bold text-espresso mb-2">Health & Cosmetics DTC</h4>
-              <p class="text-muted small mb-3">Executed a technical Shopify overhaul and targeted content siloing strategy that drove 5x organic store sales.</p>
-              
-              <div class="p-3 bg-cream-alt rounded mb-3 small">
-                <div class="d-flex justify-content-between mb-1">
-                  <span>Organic Traffic:</span> <strong>1,240,000/mo</strong>
+          <!-- Case 3 (Cosmetics DTC) -->
+          <div class="col-md-6 col-lg-4 case-item" data-category="seo scale">
+            <div class="case-card">
+              <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=800&q=80" alt="Cosmetics & Health DTC" class="case-card-img">
+              <div class="case-card-body">
+                <div class="case-metric-pill">$1.2M Organic Scale</div>
+                <h4 class="fw-bold text-espresso mb-2">Health & Cosmetics DTC</h4>
+                <p class="text-muted small mb-3">Executed a technical Shopify overhaul and targeted content siloing strategy that drove 5x organic store sales.</p>
+                
+                <div class="p-3 bg-cream-alt rounded mb-3 small">
+                  <div class="d-flex justify-content-between mb-1">
+                    <span>Organic Traffic:</span> <strong>1,240,000/mo</strong>
+                  </div>
+                  <div class="d-flex justify-content-between">
+                    <span>Rank #1 Terms:</span> <strong class="text-copper">48 Keywords</strong>
+                  </div>
                 </div>
-                <div class="d-flex justify-content-between">
-                  <span>Rank #1 Terms:</span> <strong class="text-copper">48 Keywords</strong>
-                </div>
-              </div>
 
-              <div class="d-flex justify-content-between align-items-center mt-auto">
-                <span class="badge badge-sage">Shopify SEO</span>
-                <a href="{% url 'public:case_study_detail' %}" class="fw-bold text-copper small">Read Full Breakdown <i class="fas fa-arrow-right ms-1"></i></a>
+                <div class="d-flex justify-content-between align-items-center mt-auto">
+                  <span class="badge badge-sage">Shopify SEO</span>
+                  <a href="{% url 'public:case_study_detail' 'scaling-dtc-skincare-subscription-revenue-by-210' %}" class="fw-bold text-copper small">Read Full Breakdown <i class="fas fa-arrow-right ms-1"></i></a>
+                </div>
               </div>
             </div>
           </div>
-        </div>
+        {% endif %}
 
       </div>
     </div>

@@ -3,65 +3,200 @@
 
 {% block title %}Free E-Commerce Growth Course - Digital Dark{% endblock %}
 
+{% block extra_css %}
+<style>
+  /* Bubble Style Design System */
+  .bubble-card-wrapper {
+    position: relative;
+    border-radius: 36px;
+    background: linear-gradient(145deg, #FFFDF8, #F7F1DE);
+    border: 2px solid rgba(157, 102, 56, 0.22);
+    box-shadow: 0 20px 50px rgba(78, 34, 15, 0.12), inset 0 2px 6px rgba(255, 255, 255, 0.8);
+    padding: 44px 38px;
+    overflow: hidden;
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+  }
+  .bubble-card-wrapper:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 28px 65px rgba(157, 102, 56, 0.18);
+  }
+
+  /* Decorative Ambient Floating Bubbles */
+  .bubble-bg-elem {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 1;
+    animation: floatBubble 6s ease-in-out infinite alternate;
+  }
+  .bubble-bg-1 {
+    width: 130px;
+    height: 130px;
+    top: -40px;
+    right: -40px;
+    background: radial-gradient(circle, rgba(176, 186, 153, 0.35) 0%, rgba(176, 186, 153, 0) 70%);
+  }
+  .bubble-bg-2 {
+    width: 180px;
+    height: 180px;
+    bottom: -60px;
+    left: -50px;
+    background: radial-gradient(circle, rgba(157, 102, 56, 0.18) 0%, rgba(157, 102, 56, 0) 70%);
+    animation-delay: -3s;
+  }
+  .bubble-bg-3 {
+    width: 80px;
+    height: 80px;
+    top: 50%;
+    right: 15px;
+    background: radial-gradient(circle, rgba(176, 186, 153, 0.25) 0%, rgba(176, 186, 153, 0) 70%);
+    animation-delay: -1.5s;
+  }
+
+  @keyframes floatBubble {
+    0% { transform: translateY(0) scale(1); }
+    100% { transform: translateY(-15px) scale(1.08); }
+  }
+
+  .bubble-card-content {
+    position: relative;
+    z-index: 5;
+  }
+
+  /* Bubble Input Controls */
+  .bubble-form-control {
+    background-color: #FFFFFF !important;
+    border: 2px solid rgba(78, 34, 15, 0.15) !important;
+    color: #4E220F !important;
+    border-radius: 50px !important;
+    padding: 14px 24px !important;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+  }
+  .bubble-form-control::placeholder {
+    color: #8C7063 !important;
+  }
+  .bubble-form-control:focus {
+    border-color: #9D6638 !important;
+    box-shadow: 0 0 0 5px rgba(157, 102, 56, 0.18) !important;
+    outline: none !important;
+  }
+
+  .bubble-icon-badge {
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, #B0BA99, #9D6638);
+    color: #FFFFFF;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.35rem;
+    box-shadow: 0 6px 18px rgba(157, 102, 56, 0.3);
+  }
+
+  .bubble-module-pill {
+    background: #FFFFFF;
+    border: 1px solid rgba(78, 34, 15, 0.1);
+    border-radius: 50px;
+    padding: 14px 22px;
+    box-shadow: 0 4px 15px rgba(78, 34, 15, 0.04);
+    transition: transform 0.3s ease;
+  }
+  .bubble-module-pill:hover {
+    transform: translateX(6px);
+  }
+</style>
+{% endblock %}
+
 {% block content %}
-<section class="section-padding bg-cream">
-  <div class="container my-5">
+<section class="section-padding bg-cream position-relative overflow-hidden">
+  <div class="container my-4">
     <div class="row align-items-center g-5">
+      
+      <!-- Left Column: Course Features -->
       <div class="col-lg-6">
-        <span class="badge badge-sage mb-3"><i class="fas fa-graduation-cap me-1"></i> 7-Day Email Course</span>
+        <span class="badge badge-sage mb-3 px-3 py-2 fs-6 rounded-pill"><i class="fas fa-graduation-cap me-2"></i> 7-Day Intensive Email Course</span>
         <h1 class="display-5 fw-extrabold text-espresso mb-3">7 Days to 2x Your Shopify Store Profits</h1>
-        <p class="lead text-muted mb-4">Learn the exact full-funnel media buying and CRO strategies we use to scale DTC stores past $10M ARR.</p>
+        <p class="lead text-muted mb-4">Learn the exact full-funnel media buying, profit-margin calculation, and CRO strategies we use to scale Shopify DTC stores past $10M ARR.</p>
 
         <div class="d-flex flex-column gap-3 mb-4">
-          <div class="d-flex align-items-start gap-3">
-            <div class="stat-icon bg-sage-light text-espresso rounded-circle p-2 fs-5"><i class="fas fa-check"></i></div>
+          <div class="bubble-module-pill d-flex align-items-center gap-3">
+            <div class="bubble-icon-badge flex-shrink-0"><i class="fas fa-calculator"></i></div>
             <div>
-              <strong class="d-block text-espresso">Module 1: Calculating True Break-Even ROAS</strong>
-              <span class="small text-muted">Stop relying on ad platform ROAS metrics and master margin math.</span>
+              <strong class="d-block text-espresso fs-6">Module 1: Calculating True Break-Even ROAS</strong>
+              <span class="small text-muted">Stop relying on ad platform ROAS metrics and master true net profit math.</span>
             </div>
           </div>
-          <div class="d-flex align-items-start gap-3">
-            <div class="stat-icon bg-sage-light text-espresso rounded-circle p-2 fs-5"><i class="fas fa-check"></i></div>
+          <div class="bubble-module-pill d-flex align-items-center gap-3">
+            <div class="bubble-icon-badge flex-shrink-0"><i class="fas fa-bullseye"></i></div>
             <div>
-              <strong class="d-block text-espresso">Module 2: Google Search Intent Harvesting</strong>
-              <span class="small text-muted">High-converting search campaigns that capture active buyers.</span>
+              <strong class="d-block text-espresso fs-6">Module 2: Google Search Intent Harvesting</strong>
+              <span class="small text-muted">High-converting search campaigns that capture active ready-to-buy customers.</span>
             </div>
           </div>
-          <div class="d-flex align-items-start gap-3">
-            <div class="stat-icon bg-sage-light text-espresso rounded-circle p-2 fs-5"><i class="fas fa-check"></i></div>
+          <div class="bubble-module-pill d-flex align-items-center gap-3">
+            <div class="bubble-icon-badge flex-shrink-0"><i class="fas fa-chart-line"></i></div>
             <div>
-              <strong class="d-block text-espresso">Module 3: High-Ticket Checkout CRO</strong>
-              <span class="small text-muted">Eliminate friction and boost conversion rates by 30%+.</span>
+              <strong class="d-block text-espresso fs-6">Module 3: High-Ticket Checkout CRO</strong>
+              <span class="small text-muted">Eliminate friction and boost store conversion rates by 30%+.</span>
             </div>
           </div>
         </div>
       </div>
 
+      <!-- Right Column: Lightened Luxury Bubble Form Card -->
       <div class="col-lg-6">
-        <div class="card p-5 border-0 shadow-lg" style="background-color: #3A1809; color: #F7F1DE; border-radius: 24px;">
-          <h3 class="fw-bold mb-2 text-white">Enroll in the Free Course</h3>
-          <p class="small text-light-muted mb-4">Instant access to Module 1 delivered straight to your inbox.</p>
+        <div class="bubble-card-wrapper">
+          <!-- Background Bubble Orbs -->
+          <div class="bubble-bg-elem bubble-bg-1"></div>
+          <div class="bubble-bg-elem bubble-bg-2"></div>
+          <div class="bubble-bg-elem bubble-bg-3"></div>
 
-          {% if messages %}
-            {% for message in messages %}
-              <div class="alert alert-success py-2 px-3 small rounded-3 mb-3 text-dark">{{ message }}</div>
-            {% endfor %}
-          {% endif %}
+          <div class="bubble-card-content">
+            <div class="d-flex align-items-center gap-3 mb-3">
+              <div class="bubble-icon-badge"><i class="fas fa-envelope-open-text"></i></div>
+              <div>
+                <h3 class="fw-bold mb-0 text-espresso">Enroll in the Free Course</h3>
+                <span class="badge badge-copper rounded-pill mt-1">Instant Access</span>
+              </div>
+            </div>
 
-          <form method="POST">
-            {% csrf_token %}
-            <div class="mb-3">
-              <label class="form-label small fw-bold text-uppercase text-light-muted">Your Name</label>
-              <input type="text" name="name" class="form-control form-control-lg bg-dark text-light border-secondary" placeholder="Alex Morgan" required>
+            <p class="text-muted mb-4 fs-6">Instant access to Module 1 delivered straight to your inbox.</p>
+
+            {% if messages %}
+              {% for message in messages %}
+                <div class="alert alert-success py-2 px-3 small rounded-pill mb-4 border-0 text-dark fw-bold bg-sage-light">{{ message }}</div>
+              {% endfor %}
+            {% endif %}
+
+            <form method="POST">
+              {% csrf_token %}
+              <div class="mb-3">
+                <label class="form-label small fw-bold text-uppercase text-espresso ms-2">Your Name</label>
+                <div class="input-group">
+                  <input type="text" name="name" class="form-control bubble-form-control" placeholder="Alex Morgan" required>
+                </div>
+              </div>
+              <div class="mb-4">
+                <label class="form-label small fw-bold text-uppercase text-espresso ms-2">Email Address</label>
+                <div class="input-group">
+                  <input type="email" name="email" class="form-control bubble-form-control" placeholder="alex@brand.com" required>
+                </div>
+              </div>
+              <button type="submit" class="btn btn-copper btn-lg w-100 fw-bold rounded-pill py-3">
+                Enroll Free Now <i class="fas fa-arrow-right ms-2"></i>
+              </button>
+            </form>
+
+            <div class="text-center mt-3">
+              <span class="small text-muted"><i class="fas fa-lock me-1 text-copper"></i> 100% Free. No Spam. Unsubscribe Anytime.</span>
             </div>
-            <div class="mb-4">
-              <label class="form-label small fw-bold text-uppercase text-light-muted">Email Address</label>
-              <input type="email" name="email" class="form-control form-control-lg bg-dark text-light border-secondary" placeholder="alex@brand.com" required>
-            </div>
-            <button type="submit" class="btn btn-copper btn-lg w-100 fw-bold">Enroll Free Now <i class="fas fa-arrow-right ms-2"></i></button>
-          </form>
+          </div>
         </div>
       </div>
+
     </div>
   </div>
 </section>

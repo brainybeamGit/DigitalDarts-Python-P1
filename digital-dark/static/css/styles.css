@@ -131,29 +131,32 @@ a:hover {
 
 /* Luxury Navbar */
 .navbar-custom {
-  background-color: rgba(247, 241, 222, 0.92);
-  backdrop-filter: blur(18px);
-  border-bottom: 1px solid var(--border-light);
-  padding: 20px 0;
+  background-color: rgba(247, 241, 222, 0.96) !important;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(78, 34, 15, 0.15) !important;
+  padding: 16px 0 !important;
   position: sticky;
   top: 0;
   z-index: 1000;
   transition: var(--transition);
+  box-shadow: 0 4px 20px rgba(78, 34, 15, 0.05);
 }
 
 .navbar-custom.scrolled {
-  padding: 12px 0;
+  padding: 10px 0 !important;
   box-shadow: var(--shadow-sm);
-  background-color: rgba(247, 241, 222, 0.98);
+  background-color: rgba(247, 241, 222, 0.98) !important;
 }
 
 .brand-logo {
   font-size: 1.6rem;
   font-weight: 800;
-  color: var(--espresso);
+  color: var(--espresso) !important;
   display: flex;
   align-items: center;
   gap: 12px;
+  text-decoration: none;
 }
 
 .brand-logo .dart-icon {
@@ -175,17 +178,22 @@ a:hover {
 }
 
 .nav-link-custom {
-  color: var(--espresso);
-  font-weight: 700;
-  padding: 9px 20px;
+  color: #4E220F !important;
+  font-weight: 700 !important;
+  padding: 8px 18px !important;
   border-radius: 50px;
   transition: var(--transition);
 }
 
-.nav-link-custom:hover,
+.nav-link-custom:hover {
+  color: var(--copper) !important;
+  background-color: rgba(157, 102, 56, 0.12) !important;
+}
+
 .nav-link-custom.active {
-  color: var(--copper);
-  background-color: rgba(176, 186, 153, 0.35);
+  color: #FFFFFF !important;
+  background: linear-gradient(135deg, var(--copper), #815027) !important;
+  box-shadow: 0 4px 14px rgba(157, 102, 56, 0.3);
 }
 
 /* Luxury Buttons */
